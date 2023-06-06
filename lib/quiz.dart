@@ -10,7 +10,7 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   int _currentQuestionIndex = 0;
-    List<Question> _questions = [];
+  List<Question> _questions = [];
 
   int? _selectedAnswerIndex;
 
