@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quiz.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +27,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: const Text('QuizApp')),
+      body: QuizScreen(),
+    );
   }
 }

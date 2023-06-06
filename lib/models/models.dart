@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Question {
   final String questionText;
   final List<String> options;
@@ -7,16 +5,11 @@ class Question {
 
   Question({required this.questionText, required this.options, required this.correctAnswerIndex});
 
-  factory Question.fromMap(Map<String, dynamic> map) {
-    return Question(
-      questionText: map['questionText'], 
-      options: List<String>.from(map['options']), 
-      correctAnswerIndex: map['correctAnswerIndex']
-    );
-  }
-
-  factory Question.fromJson(String json) {
-    final map = jsonDecode(json);
-    return Question.fromMap(map);
-  }
+  factory Question.fromJson(Map<String, dynamic> json) {
+  return Question(
+    questionText: json['questionText'],
+    options: List<String>.from(json['options']),
+    correctAnswerIndex: json['correctAnswerIndex'],
+  );
+}
 }
