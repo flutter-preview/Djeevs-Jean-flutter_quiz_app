@@ -1,4 +1,4 @@
-import 'package:flutter_quiz/models/models.dart';
+import 'package:flutter_quiz/models/question.dart';
 import 'package:flutter_quiz/service/service.dart';
 
 class DataApp {
