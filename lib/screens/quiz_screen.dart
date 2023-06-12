@@ -13,6 +13,9 @@ class _QuizScreenState extends State<QuizScreen> {
   int? selectedAnswerIndex;
   int score = 0;
   bool showCorrectAnswer = false;
+  bool showNextButton = false;
+  double progress = 0.0;
+
 
   @override
   void initState() {
@@ -33,12 +36,18 @@ class _QuizScreenState extends State<QuizScreen> {
       score++;
     }
     showCorrectAnswer = true;
+    showNextButton = true;
     setState(() {});
   }
 
   void showNextQuestion() {
     selectedAnswerIndex = null;
     showCorrectAnswer = false;
+    showNextButton = false;
+      // Calculate progress
+    progress = (currentQuestionIndex + 1) / questions.length;
+
+
     if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
     } else {
@@ -52,6 +61,12 @@ class _QuizScreenState extends State<QuizScreen> {
     }
     setState(() {});
   }
+
+  double getScorePercentage() {
+    double percentage = (score / questions.length) * 100;
+    return percentage;
+  }
+
 
   Future<void> pauseAndContinue() async {
     await Future.delayed(Duration(seconds: 2));
@@ -69,6 +84,8 @@ class _QuizScreenState extends State<QuizScreen> {
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                LinearProgressIndicator(value: progress, color: Colors.pink,),
+
                 Text(
                   'Question ${currentQuestionIndex + 1}/${questions.length}',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -94,7 +111,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   bool isSelectedAnswer = optionIndex == selectedAnswerIndex;
                   return GestureDetector(
                     onTap: () {
-                      if (!showCorrectAnswer) {
+                      if (!showCorrectAnswer && !showNextButton) {
                         setState(() {
                           selectedAnswerIndex = optionIndex;
                         });
@@ -117,7 +134,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             color: isSelectedAnswer
-                                ? Colors.amber
+                                ? Colors.amberAccent
                                 : showCorrectAnswer && isCorrectAnswer
                                     ? Colors.green
                                     : null,
@@ -135,19 +152,34 @@ class _QuizScreenState extends State<QuizScreen> {
                   );
                 }),
                 SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: selectedAnswerIndex == null || showCorrectAnswer ? null : () {
-                    checkAnswer();
-                    pauseAndContinue();
-                  },
-                  child: Text('Next'),
-                ),
+                if (!showNextButton)
+                  ElevatedButton(
+                    onPressed: selectedAnswerIndex == null || showCorrectAnswer ? null : () {
+                      checkAnswer();
+                    },
+                    child: Text('Check Answer'),
+                  ),
                 SizedBox(height: 16),
+                if (showNextButton)
+                  ElevatedButton(
+                    onPressed: () {
+                      showNextQuestion();
+                    },
+                    child: Text('Next Question',selectionColor: Colors.cyan,),
+                  ),
+                SizedBox(height: 16),
+                Text(
+                    'Score: ${getScorePercentage().toStringAsFixed(1)}%',
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
                 Text(
                   'Score: $score/${questions.length}',
                   style: TextStyle(fontSize: 18),
                   textAlign: TextAlign.center,
                 ),
+
+                
               ],
             ),
     );
@@ -159,6 +191,11 @@ class ResultScreen extends StatelessWidget {
   final int totalQuestions;
 
   ResultScreen({required this.score, required this.totalQuestions});
+
+  double getScorePercentage() {
+    double percentage = (score / totalQuestions) * 100;
+    return percentage;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,8 +212,10 @@ class ResultScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),
+            CircularProgressIndicator(),
+            SizedBox(height: 16),
             Text(
-              'Score: $score/$totalQuestions',
+              'Score: ${getScorePercentage().toStringAsFixed(1)}%',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 16),
@@ -190,3 +229,41 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
+
+
+// class ResultScreen extends StatelessWidget {
+//   final int score;
+//   final int totalQuestions;
+
+//   ResultScreen({required this.score, required this.totalQuestions});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Quiz Results'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text(
+//               'Quiz Completed!',
+//               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//             ),
+//             SizedBox(height: 16),
+//             Text(
+//               'Score: $score/$totalQuestions',
+//               style: TextStyle(fontSize: 20),
+//             ),
+//             SizedBox(height: 16),
+//             Text(
+//               'Congratulations!',
+//               style: TextStyle(fontSize: 20),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
