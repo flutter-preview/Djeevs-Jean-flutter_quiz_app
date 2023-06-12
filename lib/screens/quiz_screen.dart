@@ -168,16 +168,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     child: Text('Next Question',selectionColor: Colors.cyan,),
                   ),
                 SizedBox(height: 16),
-                Text(
-                    'Score: ${getScorePercentage().toStringAsFixed(1)}%',
-                    style: TextStyle(fontSize: 18),
-                    textAlign: TextAlign.center,
-                  ),
-                Text(
-                  'Score: $score/${questions.length}',
-                  style: TextStyle(fontSize: 18),
-                  textAlign: TextAlign.center,
-                ),
+                
 
                 
               ],
