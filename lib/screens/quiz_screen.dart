@@ -10,7 +10,9 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   List<Question> questions = [];
   int currentQuestionIndex = 0;
+  int? selectedAnswerIndex;
   int score = 0;
+  bool showCorrectAnswer = false;
 
   @override
   void initState() {
@@ -25,14 +27,18 @@ class _QuizScreenState extends State<QuizScreen> {
     setState(() {});
   }
 
-  void checkAnswer(int selectedIndex) {
-    if (selectedIndex == questions[currentQuestionIndex].correctAnswerIndex) {
+  void checkAnswer() {
+    int correctAnswerIndex = questions[currentQuestionIndex].correctAnswerIndex;
+    if (selectedAnswerIndex == correctAnswerIndex) {
       score++;
     }
-    showNextQuestion();
+    showCorrectAnswer = true;
+    setState(() {});
   }
 
   void showNextQuestion() {
+    selectedAnswerIndex = null;
+    showCorrectAnswer = false;
     if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
     } else {
@@ -47,6 +53,11 @@ class _QuizScreenState extends State<QuizScreen> {
     setState(() {});
   }
 
+  Future<void> pauseAndContinue() async {
+    await Future.delayed(Duration(seconds: 2));
+    showNextQuestion();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,33 +67,86 @@ class _QuizScreenState extends State<QuizScreen> {
       body: questions.isEmpty
           ? Center(child: CircularProgressIndicator())
           : Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   'Question ${currentQuestionIndex + 1}/${questions.length}',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16),
                 Text(
                   questions[currentQuestionIndex].category,
                   style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16),
                 Text(
                   questions[currentQuestionIndex].question,
                   style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16),
-                ...questions[currentQuestionIndex].options.map((option) {
-                  int index = questions[currentQuestionIndex].options.indexOf(option);
-                  return ElevatedButton(
-                    onPressed: () => checkAnswer(index),
-                    child: Text(option),
+                ...questions[currentQuestionIndex].options.asMap().entries.map((entry) {
+                  int optionIndex = entry.key;
+                  String optionText = entry.value;
+                  bool isCorrectAnswer = optionIndex == questions[currentQuestionIndex].correctAnswerIndex;
+                  bool isSelectedAnswer = optionIndex == selectedAnswerIndex;
+                  return GestureDetector(
+                    onTap: () {
+                      if (!showCorrectAnswer) {
+                        setState(() {
+                          selectedAnswerIndex = optionIndex;
+                        });
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: showCorrectAnswer
+                            ? isCorrectAnswer
+                                ? Colors.green.withOpacity(0.5)
+                                : isSelectedAnswer
+                                    ? Colors.red.withOpacity(0.5)
+                                    : null
+                            : null,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: ListTile(
+                        title: Text(
+                          optionText,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: isSelectedAnswer
+                                ? Colors.amber
+                                : showCorrectAnswer && isCorrectAnswer
+                                    ? Colors.green
+                                    : null,
+                          ),
+                        ),
+                        trailing: showCorrectAnswer
+                            ? isCorrectAnswer
+                                ? Icon(Icons.check, color: Colors.green)
+                                : isSelectedAnswer
+                                    ? Icon(Icons.close, color: Colors.red)
+                                    : null
+                            : null,
+                      ),
+                    ),
                   );
                 }),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: selectedAnswerIndex == null || showCorrectAnswer ? null : () {
+                    checkAnswer();
+                    pauseAndContinue();
+                  },
+                  child: Text('Next'),
+                ),
                 SizedBox(height: 16),
                 Text(
                   'Score: $score/${questions.length}',
                   style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
