@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Question {
   String category;
   String question;
@@ -19,4 +21,17 @@ class Question {
       correctAnswerIndex: json['correctAnswerIndex'],
     );
   }
+}
+
+
+class CategoryQuestion {
+  final String name;
+  final IconData iconData;
+  final String description;
+
+  CategoryQuestion({
+    required this.name,
+    required this.iconData,
+    required this.description,
+  });
 }

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/quiz_screen.dart';
+import 'package:flutter_quiz/model/question.dart';
 
 
 void main() {
@@ -45,7 +47,7 @@ class _HomePageState extends State<HomePage> {
         ),
         body: TabBarView(
           children: [
-            QuizScreen(),
+            HomeTab2(),
             HistoryScoreTab(),
             AboutTab(),
           ],
@@ -89,14 +91,132 @@ class _HomePageState extends State<HomePage> {
 
 
 class HomeTab extends StatelessWidget {
+  final List<String> categories = [
+    'Sports',
+    'Religieux',
+    'Science',
+    // Ajoutez d'autres catégories ici
+  ]; 
+  
+
   @override
   Widget build(BuildContext context) {
-    // Contenu de la page d'accueil
-    return Container(
-      child: Text('Home Page'),
+    return ListView.builder(
+      itemCount: categories.length,
+      itemBuilder: (context, index) {
+        final category = categories[index];
+        return ListTile(
+          title: Text(category),
+          onTap: () {
+            // Naviguer vers la page de quiz pour cette catégorie
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuizScreen(),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
+
+class HomeTab2 extends StatelessWidget {
+  final List<CategoryQuestion> categories = [
+    CategoryQuestion(
+      name: 'Sports',
+      iconData: Icons.sports,
+      description: 'Test your sports knowledge!',
+    ),
+    CategoryQuestion(
+      name: 'Religieux',
+      iconData: Icons.book,
+      description: 'Explore religious trivia!',
+    ),
+    CategoryQuestion(
+      name: 'Science',
+      iconData: Icons.science,
+      description: 'Discover scientific facts!',
+    ),
+    // Ajoutez d'autres catégories ici
+  ];
+
+  
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: EdgeInsets.only(top: 10),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Nombre de colonnes souhaité
+      ),
+      itemCount: categories.length,
+      itemBuilder: (context, index) {
+        final category = categories[index];
+        return InkWell(
+          onTap: () {
+            // Naviguer vers la page de quiz pour cette catégorie
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuizScreen(),
+                
+              ),
+            );
+          },
+          child: Card(
+            child: ListTile(
+              leading: Icon(category.iconData),
+              title: Text(category.name),
+              subtitle: Text(category.description),
+            ),
+              ),
+            );
+          },
+        );
+      }
+/* 
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: categories.length,
+      itemBuilder: (context, index) {
+        final category = categories[index];
+        return GestureDetector(
+          onTap: () {
+            // Naviguer vers la page de quiz pour cette catégorie
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuizScreen(),
+                // builder: (context) => QuizScreen(category: category),
+              ),
+            );
+          },
+          child: Card(
+            child: ListTile(
+              leading: Icon(category.iconData),
+              title: Text(category.name),
+              subtitle: Text(category.description),
+            ),
+          ),
+        );
+      },
+    ); */
+  // }
+}
+
+
+
+// class HomeTab extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // Contenu de la page d'accueil
+//     return Container(
+//       child: Text('Home Page'),
+//     );
+//   }
+// }
 
 class HistoryScoreTab extends StatelessWidget {
   @override
