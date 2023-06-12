@@ -1,103 +1,14 @@
 [
-    {
-      "questionText": "Qu'est-ce qu'un objet en programmation orientée objet ?",
-      "options": [
-        "Une instance d'une classe qui peut avoir des propriétés et des méthodes",
-        "Un ensemble de variables globales",
-        "Un fichier contenant du code source",
-        "Un langage de programmation orienté objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "questionText": "Qu'est-ce qu'une classe en programmation orientée objet ?",
-      "options": [
-        "Un groupe de fonctions",
-        "Un conteneur pour stocker des variables",
-        "Une collection d'objets",
-        "Un modèle pour créer des objets"
-      ],
-      "correctAnswerIndex": 3
-    },
-    {
-      "questionText": "Qu'est-ce qu'une méthode en programmation orientée objet ?",
-      "options": [
-        "Un type de donnée",
-        "Un identifiant unique pour un objet",
-        "Une fonction appartenant à une classe",
-        "Un concept de manipulation de mémoire"
-      ],
-      "correctAnswerIndex": 2
-    },
-    {
-      "questionText": "Qu'est-ce que l'encapsulation en programmation orientée objet ?",
-      "options": [
-        "La possibilité de cacher des détails internes d'un objet",
-        "La capacité de créer des copies d'objets",
-        "La réutilisation du code existant",
-        "La création de nouvelles classes à partir d'une classe existante"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "questionText": "Qu'est-ce que l'héritage en programmation orientée objet ?",
-      "options": [
-        "Le processus de création de nouvelles classes à partir d'une classe existante",
-        "La capacité d'un objet à être de différents types",
-        "L'utilisation de variables locales dans une classe",
-        "La copie d'un objet dans un autre objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "questionText": "Qu'est-ce que le polymorphisme en programmation orientée objet ?",
-      "options": [
-        "La possibilité d'un objet à être de différents types",
-        "La création de nouvelles classes à partir d'une classe existante",
-        "L'utilisation de variables globales",
-        "La copie d'un objet dans un autre objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "questionText": "Qu'est-ce que l'abstraction en programmation orientée objet ?",
-      "options": [
-        "L'utilisation de variables locales dans une classe",
-        "La capacité d'un objet à être de différents types",
-        "La création de nouvelles classes à partir d'une classe existante",
-        "La représentation d'un concept complexe par un modèle plus simple"
-      ],
-      "correctAnswerIndex": 3
-    },
-    {
-      "questionText": "Qu'est-ce que la surcharge de méthode en programmation orientée objet ?",
-      "options": [
-        "L'utilisation de variables locales dans une classe",
-        "La création de nouvelles classes à partir d'une classe existante",
-        "La possibilité de définir plusieurs méthodes avec le même nom mais des paramètres différents",
-        "La copie d'un objet dans un autre objet"
-      ],
-      "correctAnswerIndex": 2
-    },
-    {
-      "questionText": "Qu'est-ce que la surcharge d'opérateur en programmation orientée objet ?",
-      "options": [
-        "La création de nouvelles classes à partir d'une classe existante",
-        "La possibilité de définir plusieurs méthodes avec le même nom mais des paramètres différents",
-        "L'utilisation de variables globales",
-        "La copie d'un objet dans un autre objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "questionText": "Qu'est-ce que la composition en programmation orientée objet ?",
-      "options": [
-        "La création de nouvelles classes à partir d'une classe existante",
-        "L'utilisation de variables locales dans une classe",
-        "La capacité d'un objet à être de différents types",
-        "La création d'objets en utilisant d'autres objets comme parties composantes"
-      ],
-      "correctAnswerIndex": 3
-    }
-  ]
-  
+  {
+    "category": "Sports",
+    "question": "Quelle est l'équipe gagnante de la Coupe du Monde FIFA 2018 ?",
+    "options": ["France", "Allemagne", "Brésil", "Espagne"],
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Géographie",
+    "question": "Quel est le plus grand océan du monde ?",
+    "options": ["Océan Atlantique", "Océan Pacifique", "Océan Indien", "Océan Arctique"],
+    "correctAnswerIndex": 1
+  }
+]
