@@ -214,12 +214,20 @@ class ResultScreen extends StatelessWidget {
               'Congratulations!',
               style: TextStyle(fontSize: 20),
             ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Go to Home'),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
 
 
 // class ResultScreen extends StatelessWidget {
