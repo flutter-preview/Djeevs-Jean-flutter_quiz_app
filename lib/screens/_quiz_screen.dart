@@ -15,15 +15,34 @@ class IndexQuestionList extends StatelessWidget {
       appBar: AppBar(
         title: Text(questionModel.model),
       ),
-      body: Column(
-        
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Card(
+            child: Column(
+              children: const [
+                ListTile(
+                  leading: Icon(Icons.email),
+                  title: Text('Email'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.phone),
+                  title: Text('Phone'),
+                ),
+                // Ajoutez d'autres listTiles pour plus d'icônes
+              ],
+            ),
+          ),
+          Spacer(),
           ElevatedButton(onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
             ));
           }, child: const Text('Check Answer'),),
         ],
+      ),
       )
     );
   }
