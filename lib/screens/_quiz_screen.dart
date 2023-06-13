@@ -28,7 +28,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('assets/questions.json');
+    String data = await DefaultAssetBundle.of(context).loadString('assets/python.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {});

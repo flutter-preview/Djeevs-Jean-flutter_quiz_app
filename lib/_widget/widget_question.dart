@@ -16,7 +16,7 @@ class QuestionSingle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(question.category, style: const TextStyle(fontSize: 18), textAlign: TextAlign.center,),
+        // Text(question.category!, style: const TextStyle(fontSize: 18), textAlign: TextAlign.center,),
         const SizedBox(height: 16),
         Text(question.question, style: const TextStyle(fontSize: 20), textAlign: TextAlign.center,),
         const SizedBox(height: 16),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Question {
-  String category;
+  String? category;
   String question;
   List<String> options;
   int correctAnswerIndex;
 
-  Question({ required this.category, required this.question, required this.options, required this.correctAnswerIndex,
+  Question({this.category, required this.question, required this.options, required this.correctAnswerIndex,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) {
@@ -18,6 +18,31 @@ class Question {
     );
   }
 }
+
+class Score {
+  final String category;
+  final int score;
+
+  Score({
+    required this.category,
+    required this.score,
+  });
+
+  factory Score.fromJson(Map<String, dynamic> json) {
+    return Score(
+      category: json['category'],
+      score: json['score'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'category': category,
+      'score': score,
+    };
+  }
+}
+
 
 
 class CategoryQuestion {

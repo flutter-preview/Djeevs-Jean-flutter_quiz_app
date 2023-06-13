@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/service/service_manager.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
@@ -40,6 +41,8 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
+                String category = 'quiz'; // Remplacez par la catégorie appropriée
+                ScoreManager.addScore(Score(category: category, score: score));
                 Navigator.pop(context);
               },
               child: const Text('Go to Home'),
