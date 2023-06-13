@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/widget_question.dart';
 import 'dart:convert';
+import 'package:flutter_quiz/screens/result_screen.dart';
 
 import 'package:flutter_quiz/model/question.dart';
 
@@ -121,53 +122,3 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 }
 
-class ResultScreen extends StatelessWidget {
-  final int score;
-  final int totalQuestions;
-
-  ResultScreen({required this.score, required this.totalQuestions});
-
-  double getScorePercentage() {
-    double percentage = (score / totalQuestions) * 100;
-    return percentage;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quiz Results'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Quiz Completed!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 16),
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
-            Text(
-              'Score: ${getScorePercentage().toStringAsFixed(1)}%',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Congratulations!',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Go to Home'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

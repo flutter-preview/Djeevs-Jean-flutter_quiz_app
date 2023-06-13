@@ -6,11 +6,7 @@ class Question {
   List<String> options;
   int correctAnswerIndex;
 
-  Question({
-    required this.category,
-    required this.question,
-    required this.options,
-    required this.correctAnswerIndex,
+  Question({ required this.category, required this.question, required this.options, required this.correctAnswerIndex,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) {
@@ -29,9 +25,7 @@ class CategoryQuestion {
   final IconData iconData;
   final String description;
 
-  CategoryQuestion({
-    required this.name,
-    required this.iconData,
+  CategoryQuestion({required this.name, required this.iconData,
     required this.description,
   });
 }
