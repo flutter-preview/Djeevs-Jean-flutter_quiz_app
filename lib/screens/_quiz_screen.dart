@@ -5,9 +5,10 @@ import 'dart:convert';
 import 'package:flutter_quiz/model/question.dart';
 
 class QuestionListQuestionQuiz extends StatefulWidget {
+  const QuestionListQuestionQuiz({Key? key}) : super(key: key);
+
   @override
-  _QuestionListQuestionQuizState createState() =>
-      _QuestionListQuestionQuizState();
+  State<QuestionListQuestionQuiz> createState() => _QuestionListQuestionQuizState();
 }
 
 class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
@@ -26,8 +27,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   void loadQuestions() async {
-    String data =
-        await DefaultAssetBundle.of(context).loadString('assets/questions.json');
+    String data = await DefaultAssetBundle.of(context).loadString('assets/questions.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {});
@@ -52,11 +52,8 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
     if (currentQuestionIndex < questions.length - 1) {
       currentQuestionIndex++;
     } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              ResultScreen(score: score, totalQuestions: questions.length),
+      Navigator.pushReplacement(context, MaterialPageRoute( builder: (context) =>
+          ResultScreen(score: score, totalQuestions: questions.length),
         ),
       );
     }
@@ -69,7 +66,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   Future<void> pauseAndContinue() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     showNextQuestion();
   }
 
@@ -77,24 +74,21 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz App'),
+        title: const Text('Quiz App'),
       ),
       body: questions.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                LinearProgressIndicator(
-                  value: progress,
-                  color: Colors.pink,
-                ),
-                SizedBox(height: 16),
+                LinearProgressIndicator(value: progress, color: Colors.pink,),
+                const SizedBox(height: 16),
                 Text(
                   'Question ${currentQuestionIndex + 1}/${questions.length}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 QuestionSingle(
                   question: questions[currentQuestionIndex],
                   selectedAnswerIndex: selectedAnswerIndex,
@@ -105,25 +99,22 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
                     });
                   },
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 if (!showNextButton)
-                  ElevatedButton(
-                    onPressed: selectedAnswerIndex == null || showCorrectAnswer
-                        ? null
-                        : () {
+                  ElevatedButton(onPressed: selectedAnswerIndex == null || showCorrectAnswer
+                        ? null : () {
                             checkAnswer();
                           },
-                    child: Text('Check Answer'),
+                    child: const Text('Check Answer'),
                   ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 if (showNextButton)
-                  ElevatedButton(
-                    onPressed: () {
+                  ElevatedButton(onPressed: () {
                       showNextQuestion();
                     },
-                    child: Text('Next Question'),
+                    child: const Text('Next Question'),
                   ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
               ],
             ),
     );
