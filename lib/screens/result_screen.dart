@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz/service/service_sql.dart';
 import 'package:flutter_quiz/model/question.dart';
 import 'package:flutter_quiz/service/service_manager.dart';
 class ResultScreen extends StatelessWidget {
@@ -40,9 +41,11 @@ class ResultScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 String category = 'quiz'; // Remplacez par la catégorie appropriée
-                ScoreManager.addScore(Score(category: category, score: score));
+                final result = QuizResult(quizTitle: category, score: score);
+                await QuizDatabase.instance.insertQuizResult(result);
+
                 Navigator.pop(context);
               },
               child: const Text('Go to Home'),

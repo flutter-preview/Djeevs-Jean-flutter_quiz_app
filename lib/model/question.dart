@@ -56,6 +56,33 @@ class CategoryQuestion {
 }
 
 
+class QuizResult {
+  final int? id;
+  final String quizTitle;
+  final int score;
+
+  QuizResult({this.id, required this.quizTitle, required this.score});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'quizTitle': quizTitle,
+      'score': score,
+    };
+  }
+
+  factory QuizResult.fromMap(Map<String, dynamic> map) {
+    return QuizResult(
+      id: map['id'],
+      quizTitle: map['quizTitle'],
+      score: map['score'],
+    );
+  }
+}
+
+
+
+
 class QuestionModel {
   String model;
   String file;

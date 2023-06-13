@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/about.dart';
-import 'package:flutter_quiz/screens/history_score.dart';
+import 'package:flutter_quiz/screens/activity_score.dart';
 import 'package:flutter_quiz/screens/home_page.dart';
 
 
@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Tab> tabs = const [
     Tab(text: 'Home'),
-    Tab(text: 'History Score'),
+    Tab(text: 'Activity Score'),
     Tab(text: 'About'),
   ];
    @override
@@ -50,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
         body: TabBarView(
           children: [
             HomeTab(),
-            HistoryScoreTab(),
+            ActivityScoreTab(),
             AboutTab(),
           ],
         ),
