@@ -5,8 +5,35 @@ import 'package:flutter_quiz/screens/result_screen.dart';
 
 import 'package:flutter_quiz/model/question.dart';
 
+class IndexQuestionList extends StatelessWidget {
+  final QuestionModel questionModel;
+  const IndexQuestionList({Key? key, required this.questionModel}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(questionModel.model),
+      ),
+      body: Column(
+        
+        children: [
+          ElevatedButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
+            ));
+          }, child: const Text('Check Answer'),),
+        ],
+      )
+    );
+  }
+
+ 
+}
+
 class QuestionListQuestionQuiz extends StatefulWidget {
-  const QuestionListQuestionQuiz({Key? key}) : super(key: key);
+  final QuestionModel questionModel;
+  const QuestionListQuestionQuiz({Key? key,  required this.questionModel}) : super(key: key);
 
   @override
   State<QuestionListQuestionQuiz> createState() => _QuestionListQuestionQuizState();
@@ -28,7 +55,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('assets/python.json');
+    String data = await DefaultAssetBundle.of(context).loadString('assets/${widget.questionModel.file}.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {});

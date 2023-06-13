@@ -1,8 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/_quiz_screen.dart';
 import 'package:flutter_quiz/model/question.dart';
+import 'dart:convert';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
+  const HomeTab({Key? key}) : super(key: key);
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  List<QuestionModel> questionsModel = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadQuestionsModel();
+  }
+
+  void loadQuestionsModel() async {
+    String data = await DefaultAssetBundle.of(context).loadString('assets/data.json');
+    List<dynamic> jsonData = json.decode(data);
+    questionsModel = jsonData.map((item) => QuestionModel.fromJson(item)).toList();
+    setState(() {});
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: const EdgeInsets.only(top: 10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Nombre de colonnes souhaité
+      ),
+      itemCount: questionsModel.length,
+      itemBuilder: (context, index) {
+        final qmodel = questionsModel[index];
+        return InkWell(
+          onTap: () {
+            // Naviguer vers la page de quiz pour cette catégorie
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => IndexQuestionList(questionModel: qmodel),
+              ),
+            );
+          },
+          child: Card(
+            child: ListTile(
+                leading: Icon(Icons.data_array),
+                title: Text(qmodel.model),
+                subtitle: Text(qmodel.file),
+              ),
+            ),
+          );
+        },
+      );
+    }
+}
+
+/* class HomeTab extends StatelessWidget {
   HomeTab({Key? key}) : super(key: key);
 
   final List<CategoryQuestion> categories = [
@@ -41,3 +97,4 @@ class HomeTab extends StatelessWidget {
       );
     }
 }
+ */

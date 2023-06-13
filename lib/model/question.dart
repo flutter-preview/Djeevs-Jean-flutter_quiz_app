@@ -54,3 +54,18 @@ class CategoryQuestion {
     required this.description,
   });
 }
+
+
+class QuestionModel {
+  String model;
+  String file;
+
+  QuestionModel({required this.model, required this.file});
+
+  factory QuestionModel.fromJson(Map<String, dynamic> json) {
+    return QuestionModel(
+      model: json['question_model'],
+      file: json['file'],
+    );
+  }
+}
