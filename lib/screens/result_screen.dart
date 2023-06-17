@@ -43,7 +43,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                final result = QuizResult(quizTitle: titleQuiz, score: score);
+                final result = QuizResult(quizTitle: titleQuiz, score: double.parse(getScorePercentage().toStringAsFixed(1)));
                 await QuizResultDatabase.saveQuizResult(result);
                 Navigator.pop(context);
               },

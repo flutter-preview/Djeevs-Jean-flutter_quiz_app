@@ -32,7 +32,7 @@ class CategoryQuestion {
 class QuizResult {
   // final int? id;
   final String quizTitle;
-  final int score;
+  final double score;
 
   QuizResult({required this.quizTitle, required this.score});
 
