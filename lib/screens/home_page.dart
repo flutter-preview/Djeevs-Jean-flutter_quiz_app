@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/screens/_quiz_screen.dart';
+import 'package:flutter_quiz/_widget/_quiz_screen.dart';
 import 'package:flutter_quiz/model/question.dart';
 import 'dart:convert';
 
@@ -51,7 +51,7 @@ class _HomeTabState extends State<HomeTab> {
           child: Card(
             child: ListTile(
                 leading: const Icon(Icons.data_array),
-                title: Text(qmodel.model, style: const TextStyle(fontSize: 16),),
+                title: Text(qmodel.quizTitle, style: const TextStyle(fontSize: 16),),
                 subtitle: Text(qmodel.file),
               ),
             ),

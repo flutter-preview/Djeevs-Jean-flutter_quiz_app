@@ -13,7 +13,7 @@ class IndexQuestionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(questionModel.model),
+        title: Text(questionModel.quizTitle),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
@@ -60,6 +60,8 @@ class QuestionListQuestionQuiz extends StatefulWidget {
 
 class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   List<Question> questions = [];
+  static String filePath = 'assets/languages/';
+
   int currentQuestionIndex = 0;
   int? selectedAnswerIndex;
   int score = 0;
@@ -74,7 +76,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('assets/languages/${widget.questionModel.file}.json');
+    String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {});
@@ -100,7 +102,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
       currentQuestionIndex++;
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute( builder: (context) =>
-          ResultScreen(score: score, totalQuestions: questions.length),
+          ResultScreen(score: score, totalQuestions: questions.length, titleQuiz: widget.questionModel.quizTitle),
         ),
       );
     }

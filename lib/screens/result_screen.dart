@@ -4,8 +4,9 @@ import 'package:flutter_quiz/service/service_json.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
+  final String titleQuiz;
 
-  const ResultScreen({Key? key, required this.score, required this.totalQuestions})  : super(key: key);
+  const ResultScreen({Key? key, required this.score, required this.totalQuestions, required this.titleQuiz})  : super(key: key);
 
 
   double getScorePercentage() {
@@ -42,8 +43,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                String category = 'quiz'; 
-                final result = QuizResult(quizTitle: category, score: score);
+                final result = QuizResult(quizTitle: titleQuiz, score: score);
                 await QuizResultDatabase.saveQuizResult(result);
                 Navigator.pop(context);
               },

@@ -1,18 +1,18 @@
 [
   {
-    "question_model": "Python",
+    "quizTitle": "Python",
     "file": "python"
   },
   {
-    "question_model": "Java",
+    "quizTitle": "Java",
     "file": "java"
   },
   {
-    "question_model": "C++",
+    "quizTitle": "C++",
     "file": "cplusplus"
   },
   {
-    "question_model": "Dart",
+    "quizTitle": "Dart",
     "file": "dart"
   }
 ]

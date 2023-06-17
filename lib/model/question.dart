@@ -53,14 +53,14 @@ class QuizResult {
 }
 
 class QuestionModel {
-  String model;
+  String quizTitle;
   String file;
 
-  QuestionModel({required this.model, required this.file});
+  QuestionModel({required this.quizTitle, required this.file});
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) {
     return QuestionModel(
-      model: json['question_model'],
+      quizTitle: json['quizTitle'],
       file: json['file'],
     );
   }
