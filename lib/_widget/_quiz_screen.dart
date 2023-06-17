@@ -132,7 +132,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                LinearProgressIndicator(value: progress, color: Colors.pink,),
+                LinearProgressIndicator(value: progress, color: Colors.blue, backgroundColor: Colors.pink),
                 const SizedBox(height: 16),
                 Text(
                   'Question ${currentQuestionIndex + 1}/${questions.length}',
