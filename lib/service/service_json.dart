@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_quiz/model/question.dart';
 
-class DbJson {
+class QuizResultDatabase {
   static String filePath = 'assets/data/data.json';
 
   static Future<void> saveQuizResult(QuizResult quizResult) async {

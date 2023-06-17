@@ -1,49 +1,42 @@
-// import 'package:sqflite/sqflite.dart';
-// import 'package:flutter_quiz/model/question.dart';
-// import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:flutter_quiz/model/question.dart';
 
-// import 'package:path/path.dart';
+import 'package:path/path.dart';
 
+class QuizResultDatabase {
+  static const String tableName = 'quiz_results';
 
-// class QuizResultDatabase {
-//   late Database _database;
+  static Future<Database> _openDatabase() async {
+    final databasesPath = await getDatabasesPath();
+    final path = join(databasesPath, 'quiz_results.db');
+    return openDatabase(path, version: 1, onCreate: _onCreate);
+  }
 
-//   Future<void> open() async {
-//     // Récupérer le répertoire d'accès aux fichiers de l'application
-//     final databasePath = await getDatabasesPath();
-//     final path = join(databasePath, 'quiz_results.db'); // Chemin de la base de données
+  static Future<void> _onCreate(Database db, int version) async {
+    await db.execute('''
+      CREATE TABLE $tableName(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        quizTitle TEXT,
+        score INTEGER
+      )
+    ''');
+  }
 
-//     // Ouvrir la base de données
-//     _database = await openDatabase(
-//       path,
-//       version: 1,
-//       onCreate: (db, version) {
-//         // Créer la table pour les quiz results
-//         return db.execute(
-//           '''
-//           CREATE TABLE quiz_results(
-//             id INTEGER PRIMARY KEY AUTOINCREMENT,
-//             quizTitle TEXT,
-//             score INTEGER
-//           )
-//           ''',
-//         );
-//       },
-//     );
-//   }
+  static Future<void> insertQuizResult(QuizResult quizResult) async {
+    final db = await _openDatabase();
+    await db.insert(tableName, quizResult.toMap());
+  }
 
-//   Future<int> insertQuizResult(QuizResult quizResult) async {
-//     return await _database.insert('quiz_results', quizResult.toMap());
-//   }
+  static Future<List<QuizResult>> getQuizResults() async {
+    final db = await _openDatabase();
+    final maps = await db.query(tableName);
+    return List.generate(maps.length, (index) {
+      return QuizResult.fromMap(maps[index]);
+    });
+  }
 
-//   Future<List<QuizResult>> getAllQuizResults() async {
-//     final List<Map<String, dynamic>> maps = await _database.query('quiz_results');
-//     return List.generate(maps.length, (index) {
-//       return QuizResult.fromMap(maps[index]);
-//     });
-//   }
-
-//   Future<void> close() async {
-//     await _database.close();
-//   }
-// }
+  static Future<void> clearQuizResults() async {
+    final db = await _openDatabase();
+    await db.delete(tableName);
+  }
+}

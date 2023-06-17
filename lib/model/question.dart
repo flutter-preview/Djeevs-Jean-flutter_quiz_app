@@ -19,32 +19,6 @@ class Question {
   }
 }
 
-class Score {
-  final String category;
-  final int score;
-
-  Score({
-    required this.category,
-    required this.score,
-  });
-
-  factory Score.fromJson(Map<String, dynamic> json) {
-    return Score(
-      category: json['category'],
-      score: json['score'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'category': category,
-      'score': score,
-    };
-  }
-}
-
-
-
 class CategoryQuestion {
   final String name;
   final IconData iconData;
@@ -54,7 +28,6 @@ class CategoryQuestion {
     required this.description,
   });
 }
-
 
 class QuizResult {
   // final int? id;
@@ -78,9 +51,6 @@ class QuizResult {
     );
   }
 }
-
-
-
 
 class QuestionModel {
   String model;

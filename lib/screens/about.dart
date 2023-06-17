@@ -6,7 +6,7 @@ class AboutTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Text('About Page'),
+      child: Center(child: const Text('About Page')),
     );
   }
 }

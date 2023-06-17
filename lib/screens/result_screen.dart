@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/service/prefs.dart';
-import 'package:flutter_quiz/db/db_question.dart';
 import 'package:flutter_quiz/model/question.dart';
-import 'package:flutter_quiz/db/db_json.dart';
-import 'package:flutter_quiz/service/service_manager.dart';
+import 'package:flutter_quiz/service/service_json.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
@@ -47,7 +44,7 @@ class ResultScreen extends StatelessWidget {
               onPressed: () async {
                 String category = 'quiz'; 
                 final result = QuizResult(quizTitle: category, score: score);
-                await DbJson.saveQuizResult(result);
+                await QuizResultDatabase.saveQuizResult(result);
                 Navigator.pop(context);
               },
               child: const Text('Go to Home'),
