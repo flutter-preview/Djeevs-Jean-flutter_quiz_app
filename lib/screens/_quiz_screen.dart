@@ -74,7 +74,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('assets/${widget.questionModel.file}.json');
+    String data = await DefaultAssetBundle.of(context).loadString('assets/languages/${widget.questionModel.file}.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {});
@@ -123,7 +123,9 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
       appBar: AppBar(
         title: const Text('Quiz App'),
       ),
-      body: questions.isEmpty
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: questions.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -164,6 +166,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
                 const SizedBox(height: 16),
               ],
             ),
+      ),
     );
   }
 }

@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/about.dart';
 import 'package:flutter_quiz/screens/activity_score.dart';
 import 'package:flutter_quiz/screens/home_page.dart';
-
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart' as sqflite_ffi;
+import 'package:sqflite_common/sqlite_api.dart';
 
 void main() {
+    // Initialize sqflite
+  sqflite_ffi.sqfliteFfiInit();
+
+  // Set the database factory
+  databaseFactory = sqflite_ffi.databaseFactoryFfi;
+
   runApp(const MyApp());
 }
 

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/_quiz_screen.dart';
 import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/db/db_question.dart';
 import 'dart:convert';
+import 'package:flutter_quiz/db/db_json.dart';
+
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -20,7 +23,9 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   void loadQuestionsModel() async {
-    String data = await DefaultAssetBundle.of(context).loadString('assets/data.json');
+    String data = await DefaultAssetBundle.of(context).loadString('assets/conf/conf.json');
+    // await DbJson.saveQuizResult(QuizResult(quizTitle: 'quizTitle', score: 2));
+
     List<dynamic> jsonData = json.decode(data);
     questionsModel = jsonData.map((item) => QuestionModel.fromJson(item)).toList();
     setState(() {});
@@ -30,7 +35,7 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2, // Nombre de colonnes souhaité
       ),
@@ -48,7 +53,7 @@ class _HomeTabState extends State<HomeTab> {
           child: Card(
             child: ListTile(
                 leading: Icon(Icons.data_array),
-                title: Text(qmodel.model),
+                title: Text(qmodel.model, style: TextStyle(fontSize: 16),),
                 subtitle: Text(qmodel.file),
               ),
             ),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/service/service_sql.dart';
+import 'package:flutter_quiz/service/prefs.dart';
+import 'package:flutter_quiz/db/db_question.dart';
 import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/db/db_json.dart';
 import 'package:flutter_quiz/service/service_manager.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
   final int totalQuestions;
 
   const ResultScreen({Key? key, required this.score, required this.totalQuestions})  : super(key: key);
+
 
   double getScorePercentage() {
     double percentage = (score / totalQuestions) * 100;
@@ -42,10 +45,9 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async {
-                String category = 'quiz'; // Remplacez par la catégorie appropriée
+                String category = 'quiz'; 
                 final result = QuizResult(quizTitle: category, score: score);
-                await QuizDatabase.instance.insertQuizResult(result);
-
+                await DbJson.saveQuizResult(result);
                 Navigator.pop(context);
               },
               child: const Text('Go to Home'),

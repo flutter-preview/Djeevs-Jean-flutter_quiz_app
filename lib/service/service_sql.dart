@@ -1,55 +1,49 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:flutter_quiz/model/question.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
+// import 'package:sqflite/sqflite.dart';
+// import 'package:flutter_quiz/model/question.dart';
+// import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-class QuizDatabase {
-  static final QuizDatabase instance = QuizDatabase._init();
-  static Database? _database;
+// import 'package:path/path.dart';
 
-  QuizDatabase._init();
 
-  Future<Database> get database async {
-    if (_database != null) return _database;
-    _database = await _initDB('quiz.db');
-    return _database;
-  }
+// class QuizResultDatabase {
+//   late Database _database;
 
-  Future<Database> _initDB(String filePath) async {
-    final dbPath = await getDatabasesPath();
-    final path = join(dbPath, filePath);
+//   Future<void> open() async {
+//     // Récupérer le répertoire d'accès aux fichiers de l'application
+//     final databasePath = await getDatabasesPath();
+//     final path = join(databasePath, 'quiz_results.db'); // Chemin de la base de données
 
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _createDB,
-    );
-  }
+//     // Ouvrir la base de données
+//     _database = await openDatabase(
+//       path,
+//       version: 1,
+//       onCreate: (db, version) {
+//         // Créer la table pour les quiz results
+//         return db.execute(
+//           '''
+//           CREATE TABLE quiz_results(
+//             id INTEGER PRIMARY KEY AUTOINCREMENT,
+//             quizTitle TEXT,
+//             score INTEGER
+//           )
+//           ''',
+//         );
+//       },
+//     );
+//   }
 
-  Future<void> _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final textType = 'TEXT NOT NULL';
-    final intType = 'INTEGER NOT NULL';
+//   Future<int> insertQuizResult(QuizResult quizResult) async {
+//     return await _database.insert('quiz_results', quizResult.toMap());
+//   }
 
-    await db.execute('''
-      CREATE TABLE QuizResults (
-        id $idType,
-        quizTitle $textType,
-        score $intType
-      )
-    ''');
-  }
+//   Future<List<QuizResult>> getAllQuizResults() async {
+//     final List<Map<String, dynamic>> maps = await _database.query('quiz_results');
+//     return List.generate(maps.length, (index) {
+//       return QuizResult.fromMap(maps[index]);
+//     });
+//   }
 
-  Future<int> insertQuizResult(QuizResult result) async {
-    final db = await instance.database;
-    return await db.insert('QuizResults', result.toMap());
-  }
-
-  Future<List<QuizResult>> getAllQuizResults() async {
-    final db = await instance.database;
-    final maps = await db.query('QuizResults');
-    return List.generate(maps.length, (i) {
-      return QuizResult.fromMap(maps[i]);
-    });
-  }
-}
+//   Future<void> close() async {
+//     await _database.close();
+//   }
+// }
