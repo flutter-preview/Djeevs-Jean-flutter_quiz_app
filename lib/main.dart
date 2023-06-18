@@ -32,7 +32,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
 
   final List<Tab> tabs = const [
-    Tab(text: 'Home'), Tab(text: 'Activity Score'), Tab(text: 'About'),
+    Tab(text: 'Quizzes'), Tab(text: 'Activity'), Tab(text: 'Index'),
   ];
    @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Quiz App'),
+          title: const Center(child: Text('Quiz App')),
           bottom: TabBar(tabs: tabs),
         ),
         body: const TabBarView(  children: [HomeTab(), ActivityScoreTab(), AboutTab(), ],),

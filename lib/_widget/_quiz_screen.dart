@@ -40,7 +40,7 @@ class IndexQuestionList extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
             ));
-          }, child: const Text('Check Answer'),),
+          }, child: const Text('Start new quiz'),),
         ],
       ),
       )
