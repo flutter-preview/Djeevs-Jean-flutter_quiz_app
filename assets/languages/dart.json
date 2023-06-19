@@ -1,24 +1,202 @@
 [
-    {
-      "question": "Qu'est-ce qu'un objet en programmation orientée objet ?",
-      "options": [
-        "Une instance d'une classe qui peut avoir des propriétés et des méthodes",
-        "Un ensemble de variables globales",
-        "Un fichier contenant du code source",
-        "Un langage de programmation orienté objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "question": "Qu'est-ce qu'une classe en programmation orientée objet ?",
-      "options": [
-        "Un groupe de fonctions",
-        "Un conteneur pour stocker des variables",
-        "Une collection d'objets",
-        "Un modèle pour créer des objets"
-      ],
-      "correctAnswerIndex": 3
-    }
-    
-  ]
-  
+  {
+    "question": "What is Dart?",
+    "options": [
+      "A programming language",
+      "A data structure",
+      "A design pattern",
+      "A text editor"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which company developed Dart?",
+    "options": [
+      "Google",
+      "Apple",
+      "Microsoft",
+      "Facebook"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the main purpose of Dart?",
+    "options": [
+      "To build web, mobile, and desktop applications",
+      "To perform mathematical calculations",
+      "To design user interfaces",
+      "To manage databases"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which tool is used to compile Dart code?",
+    "options": [
+      "Dart Compiler (dart2js)",
+      "Dart Analyzer",
+      "Dart Formatter",
+      "Dart Debugger"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword is used to define a variable in Dart?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "def"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```dart\nprint(5 + 5);```\n",
+    "options": [
+      "10",
+      "\"55\"",
+      "Error",
+      "NaN"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which data type is used to represent a sequence of characters in Dart?",
+    "options": [
+      "String",
+      "int",
+      "double",
+      "bool"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which operator is used for string concatenation in Dart?",
+    "options": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'async' keyword in Dart?",
+    "options": [
+      "To mark a function as asynchronous",
+      "To define a loop",
+      "To create a widget",
+      "To handle exceptions"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which operator is used to check equality in Dart?",
+    "options": [
+      "==",
+      "===",
+      "!=",
+      "<="
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'final' keyword in Dart?",
+    "options": [
+      "To declare a variable whose value cannot be changed",
+      "To terminate the execution of a loop",
+      "To define a class",
+      "To create a new instance"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which method is used to convert a string to an integer in Dart?",
+    "options": [
+      "int.parse()",
+      "double.parse()",
+      "toString()",
+      "round()"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'main()' function in Dart?",
+    "options": [
+      "To define the entry point of a Dart program",
+      "To perform mathematical calculations",
+      "To create user interfaces",
+      "To manage databases"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```dart\nfor (int i = 0; i < 5; i++) {\n  print(i);\n}\n```",
+    "options": [
+      "0 1 2 3 4",
+      "1 2 3 4 5",
+      "0 1 2 3",
+      "Error"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword is used to indicate that a function does not return a value in Dart?",
+    "options": [
+      "void",
+      "null",
+      "dynamic",
+      "var"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'import' keyword in Dart?",
+    "options": [
+      "To include libraries or files in Dart",
+      "To declare a new variable",
+      "To define a new function",
+      "To handle exceptions"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which operator is used to access a member of an object in Dart?",
+    "options": [
+      ".",
+      "->",
+      "::",
+      "@"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'new' keyword in Dart?",
+    "options": [
+      "To create an instance of a class",
+      "To declare a new variable",
+      "To define a new function",
+      "To access a static member"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```dart\nint x = 10;\nint y = x++;\nprint(y);\n```",
+    "options": [
+      "10",
+      "11",
+      "Error",
+      "0"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which operator is used to perform a type check in Dart?",
+    "options": [
+      "is",
+      "as",
+      "typeof",
+      "instanceof"
+    ],
+    "correctAnswerIndex": 0
+  }
+]
