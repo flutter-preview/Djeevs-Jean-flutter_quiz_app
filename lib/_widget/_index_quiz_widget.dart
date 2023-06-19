@@ -59,6 +59,7 @@ class QuestionSelectionPage extends StatefulWidget {
   _QuestionSelectionPageState createState() => _QuestionSelectionPageState();
 }
 
+
 class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
   double _selectedQuestion = 10.0;
   List<Question> questions = [];
@@ -72,26 +73,17 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
   }
 
   void loadQuestions() async {
-    String data =
-        await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
+    String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
     List<dynamic> jsonData = json.decode(data);
     questions = jsonData.map((item) => Question.fromJson(item)).toList();
     setState(() {
+      maxQuestionCount = questions.length;
     });
   }
 
   @override
-  void setState(VoidCallback fn) {
-    // TODO: implement setState
-    super.setState(fn);
-    maxQuestionCount = questions.length;
-
-  }
-
-  @override
   Widget build(BuildContext context) {
-    bool isButtonDisabled =
-        _selectedQuestion == 0 || _selectedQuestion > maxQuestionCount;
+    bool isButtonDisabled = _selectedQuestion == 0 || _selectedQuestion > maxQuestionCount;
 
     return Scaffold(
       appBar: AppBar(
@@ -128,12 +120,20 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
               ),
             ),
             ElevatedButton(
-              onPressed: isButtonDisabled ? null : () {
-                var nombre = questions.sublist(0, maxQuestionCount);
-                Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => QuestionListQuestionQuiz(questionModel: widget.questionModel, questions: nombre),
-                      ));
-              },
+              onPressed: isButtonDisabled
+                  ? null
+                  : () {
+                      var selectedQuestions = questions.sublist(0, _selectedQuestion.toInt());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuestionListQuestionQuiz(
+                            questionModel: widget.questionModel,
+                            questions: selectedQuestions,
+                          ),
+                        ),
+                      );
+                    },
               child: Text('Start Quiz'),
             ),
           ],
@@ -142,6 +142,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
     );
   }
 }
+
 /* 
 
 class QuestionSelectionPage extends StatefulWidget {
