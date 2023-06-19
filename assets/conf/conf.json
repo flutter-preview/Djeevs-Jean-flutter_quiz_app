@@ -12,7 +12,20 @@
     "file": "cplusplus"
   },
   {
-    "quizTitle": "Dart",
-    "file": "dart"
+    "quizTitle": "Android",
+    "file": "android"
+  },
+  {
+    "quizTitle": "HTML",
+    "file": "html"
+  },
+  {
+    "quizTitle": "JavaScript",
+    "file": "javascript"
+  },
+  {
+    "quizTitle": "SQL",
+    "file": "sql"
   }
+  
 ]

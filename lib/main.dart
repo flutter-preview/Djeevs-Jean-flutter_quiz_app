@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/screens/about.dart';
-import 'package:flutter_quiz/screens/activity_score.dart';
-import 'package:flutter_quiz/screens/home_page.dart';
+import 'package:flutter_quiz/screens/index_page.dart';
+import 'package:flutter_quiz/screens/activity_page.dart';
+import 'package:flutter_quiz/screens/quizzes_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
           title: const Center(child: Text('Quiz App')),
           bottom: TabBar(tabs: tabs),
         ),
-        body: const TabBarView(  children: [HomeTab(), ActivityScoreTab(), AboutTab(), ],),
+        body: const TabBarView(  children: [QuizzesTab(), ActivityTab(), IndexTab(), ],),
       ),
     );
   }

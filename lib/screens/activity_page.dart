@@ -3,14 +3,14 @@ import 'package:flutter_quiz/service/service_json.dart';
 
 import 'package:flutter_quiz/model/question.dart';
 
-class ActivityScoreTab extends StatefulWidget {
-  const ActivityScoreTab({Key? key}) : super(key: key);
+class ActivityTab extends StatefulWidget {
+  const ActivityTab({Key? key}) : super(key: key);
 
   @override
-  State<ActivityScoreTab> createState() => _ActivityScoreTabState();
+  State<ActivityTab> createState() => _ActivityTabState();
 }
 
-class _ActivityScoreTabState extends State<ActivityScoreTab> {
+class _ActivityTabState extends State<ActivityTab> {
 
   Future<List<QuizResult>> quizResultsFuture = QuizResultDatabase.loadQuizResults();
 

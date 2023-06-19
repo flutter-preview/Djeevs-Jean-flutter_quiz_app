@@ -8,6 +8,10 @@ class ResultScreen extends StatelessWidget {
 
   const ResultScreen({Key? key, required this.score, required this.totalQuestions, required this.titleQuiz})  : super(key: key);
 
+  void saveScore() async{
+    final result = QuizResult(quizTitle: titleQuiz, score: double.parse(getScorePercentage().toStringAsFixed(1)));
+    await QuizResultDatabase.saveQuizResult(result);
+  }
 
   double getScorePercentage() {
     double percentage = (score / totalQuestions) * 100;
@@ -16,6 +20,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    saveScore();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Results'),
@@ -29,22 +34,20 @@ class ResultScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            const CircularProgressIndicator(),
             const SizedBox(height: 16),
             Text(
-              'Score: ${getScorePercentage().toStringAsFixed(1)}%',
+              'Your score is : $score / $totalQuestions',
+              style: const TextStyle(fontSize: 20),
+            ),
+            Text(
+              'Equivalent : ${getScorePercentage().toStringAsFixed(1)}%',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Congratulations!',
-              style: TextStyle(fontSize: 20),
-            ),
+            
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () async {
-                final result = QuizResult(quizTitle: titleQuiz, score: double.parse(getScorePercentage().toStringAsFixed(1)));
-                await QuizResultDatabase.saveQuizResult(result);
+              onPressed: () {
                 Navigator.pop(context);
               },
               child: const Text('Go to Home'),

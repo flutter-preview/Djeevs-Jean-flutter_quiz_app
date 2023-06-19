@@ -25,7 +25,9 @@ class QuizResultDatabase {
     if (await file.exists()) {
       String fileContent = await file.readAsString();
       List<dynamic> data = jsonDecode(fileContent);
-      quizResults = data.map((result) => QuizResult.fromMap(result)).toList();
+      final ddata = data.reversed;
+      quizResults = ddata.map((result) => QuizResult.fromMap(result)).toList();
+      // quizResults = quizResults.r;
     }
 
     return quizResults;

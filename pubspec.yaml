@@ -62,7 +62,11 @@ flutter:
   - assets/languages/java.json
   - assets/languages/cplusplus.json
   - assets/languages/dart.json
-  - assets/data/data.json
+  - assets/languages/html.json
+  - assets/languages/css.json
+  - assets/languages/android.json
+  - assets/languages/javascript.json
+  # - assets/data/data.json
   # - assets/questions.json
   # - assets/python.json
   # - assets/save.json

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AboutTab extends StatelessWidget {
-  const AboutTab({Key? key}) : super(key: key);
+class IndexTab extends StatelessWidget {
+  const IndexTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

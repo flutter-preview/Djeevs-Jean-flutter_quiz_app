@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/_widget/_quiz_screen.dart';
+import 'package:flutter_quiz/_widget/_index_quiz_widget.dart';
 import 'package:flutter_quiz/model/question.dart';
 import 'dart:convert';
 
-
-class HomeTab extends StatefulWidget {
-  const HomeTab({Key? key}) : super(key: key);
+class QuizzesTab extends StatefulWidget {
+  const QuizzesTab({Key? key}) : super(key: key);
 
   @override
-  State<HomeTab> createState() => _HomeTabState();
+  State<QuizzesTab> createState() => _QuizzesTabState();
 }
 
-class _HomeTabState extends State<HomeTab> {
+class _QuizzesTabState extends State<QuizzesTab> {
   List<QuestionModel> questionsModel = [];
   static String filePath = 'assets/conf/conf.json';
 
@@ -45,7 +44,7 @@ class _HomeTabState extends State<HomeTab> {
           onTap: () {
             // Naviguer vers la page de quiz pour cette catégorie
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) => IndexQuestionList(questionModel: qmodel),
+                builder: (context) => IndexWidgetQuiz(questionModel: qmodel),
               ),
             );
           },
