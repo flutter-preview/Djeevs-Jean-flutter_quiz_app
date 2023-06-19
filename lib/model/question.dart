@@ -33,13 +33,15 @@ class QuizResult {
   // final int? id;
   final String quizTitle;
   final double score;
+  final DateTime date;
 
-  QuizResult({required this.quizTitle, required this.score});
+  QuizResult({required this.quizTitle, required this.score, required this.date});
 
   Map<String, dynamic> toMap() {
     return {
       'quizTitle': quizTitle,
       'score': score,
+      'date':date.toIso8601String()
     };
   }
 
@@ -48,6 +50,7 @@ class QuizResult {
       // id: map['id'],
       quizTitle: map['quizTitle'],
       score: map['score'],
+      date: DateTime.parse(map['date']),
     );
   }
 }

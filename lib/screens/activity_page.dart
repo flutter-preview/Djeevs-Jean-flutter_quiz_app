@@ -35,7 +35,13 @@ class _ActivityTabState extends State<ActivityTab> {
               QuizResult result = quizResults[index];
               return ListTile(
                 title: Text('Quiz: ${result.quizTitle}'),
-                subtitle: Text('Score: ${result.score}'),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Score: ${result.score}'),
+                    Text('Date: ${result.date}'),
+                  ],
+                ),
               );
             },
           );

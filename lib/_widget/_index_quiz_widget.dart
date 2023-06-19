@@ -1,49 +1,278 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/_quiz_screen.dart';
 
 import 'package:flutter_quiz/model/question.dart';
 
-class IndexWidgetQuiz extends StatelessWidget {
+// class IndexWidgetQuiz extends StatelessWidget {
+//   final QuestionModel questionModel;
+//   const IndexWidgetQuiz({Key? key, required this.questionModel}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(questionModel.quizTitle),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 10),
+//         child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.stretch,
+//         children: [
+          
+//           /* Card(
+//             child: Column(
+//               children: const [
+//                 ListTile(
+//                   leading: Icon(Icons.email),
+//                   title: Text('Email'),
+//                 ),
+//                 ListTile(
+//                   leading: Icon(Icons.phone),
+//                   title: Text('Phone'),
+//                 ),
+//                 // Ajoutez d'autres listTiles pour plus d'icônes
+//               ],
+//             ),
+//           ), */
+//           const Spacer(),
+//           ElevatedButton(onPressed: () {
+//             Navigator.push(context, MaterialPageRoute(
+//               builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
+//             ));
+//           }, child: const Text('Start new quiz'),),
+//         ],
+//       ),
+//       )
+//     );
+//   } 
+// }
+
+class QuestionSelectionPage extends StatefulWidget {
   final QuestionModel questionModel;
-  const IndexWidgetQuiz({Key? key, required this.questionModel}) : super(key: key);
+
+  QuestionSelectionPage({
+    required this.questionModel,
+  });
+
+  @override
+  _QuestionSelectionPageState createState() => _QuestionSelectionPageState();
+}
+
+class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
+  double _selectedQuestion = 10.0;
+  List<Question> questions = [];
+  static String filePath = 'assets/languages/';
+  int maxQuestionCount = 11;
+
+  @override
+  void initState() {
+    super.initState();
+    loadQuestions();
+  }
+
+  void loadQuestions() async {
+    String data =
+        await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
+    List<dynamic> jsonData = json.decode(data);
+    questions = jsonData.map((item) => Question.fromJson(item)).toList();
+    setState(() {
+    });
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+    maxQuestionCount = questions.length;
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    bool isButtonDisabled =
+        _selectedQuestion == 0 || _selectedQuestion > maxQuestionCount;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Quiz - ${widget.questionModel.quizTitle}'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Select the number of questions:',
+              style: TextStyle(fontSize: 16),
+            ),
+            SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                activeTrackColor: Colors.blue,
+                inactiveTrackColor: Colors.grey,
+                thumbColor: Colors.blue,
+                overlayColor: Colors.blue.withOpacity(0.3),
+                valueIndicatorColor: Colors.blue,
+              ),
+              child: Slider(
+                value: _selectedQuestion,
+                min: 0,
+                max: maxQuestionCount.toDouble(),
+                divisions: maxQuestionCount,
+                label: _selectedQuestion.round().toString(),
+                onChanged: (double value) {
+                  setState(() {
+                    _selectedQuestion = value;
+                  });
+                },
+              ),
+            ),
+            ElevatedButton(
+              onPressed: isButtonDisabled ? null : () {
+                var nombre = questions.sublist(0, maxQuestionCount);
+                Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => QuestionListQuestionQuiz(questionModel: widget.questionModel, questions: nombre),
+                      ));
+              },
+              child: Text('Start Quiz'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+/* 
+
+class QuestionSelectionPage extends StatefulWidget {
+  final QuestionModel questionModel;
+
+  QuestionSelectionPage({
+    required this.questionModel,
+  });
+
+  @override
+  _QuestionSelectionPageState createState() => _QuestionSelectionPageState();
+}
+
+class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
+  double _selectedQuestion = 10.0;
+  List<Question> questions = [];
+  static String filePath = 'assets/languages/';
+  late int maxQuestionCount; 
+
+  @override
+  void initState() {
+    super.initState();
+    loadQuestions();
+  }
+
+  void loadQuestions() async {
+    String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
+    List<dynamic> jsonData = json.decode(data);
+    questions = jsonData.map((item) => Question.fromJson(item)).toList();
+    maxQuestionCount = questions.length;
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    bool isButtonDisabled =
+        _selectedQuestion == 0 || _selectedQuestion > maxQuestionCount;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Quiz - ${widget.questionModel.quizTitle}'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Select the number of questions:',
+              style: TextStyle(fontSize: 16),
+            ),
+            SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                activeTrackColor: Colors.blue,
+                inactiveTrackColor: Colors.grey,
+                thumbColor: Colors.blue,
+                overlayColor: Colors.blue.withOpacity(0.3),
+                valueIndicatorColor: Colors.blue,
+              ),
+              child: Slider(
+                value: _selectedQuestion,
+                min: 0,
+                max: maxQuestionCount.toDouble(),
+                divisions: maxQuestionCount,
+                label: _selectedQuestion.round().toString(),
+                onChanged: (double value) {
+                  setState(() {
+                    _selectedQuestion = value;
+                  });
+                },
+              ),
+            ),
+            ElevatedButton(
+              onPressed: isButtonDisabled
+                  ? null
+                  : () {
+                      int selectedQuestionCount = _selectedQuestion.round();
+                      
+                      // Naviguer vers la page du quiz avec le nombre de questions sélectionné
+                      // Navigator.push(context, MaterialPageRoute(
+                      //   builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
+                      // ));
+                    },
+              child: Text('Start Quiz'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+ */
+
+
+class RangeSliderExample extends StatefulWidget {
+  @override
+  _RangeSliderExampleState createState() => _RangeSliderExampleState();
+}
+
+class _RangeSliderExampleState extends State<RangeSliderExample> {
+  double _startValue = 25.0;
+  double _endValue = 75.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(questionModel.quizTitle),
+        title: Text('Range Slider Example'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 10),
+        padding: EdgeInsets.all(16.0),
         child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          
-          /* Card(
-            child: Column(
-              children: const [
-                ListTile(
-                  leading: Icon(Icons.email),
-                  title: Text('Email'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.phone),
-                  title: Text('Phone'),
-                ),
-                // Ajoutez d'autres listTiles pour plus d'icônes
-              ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Start Value: $_startValue'),
+            Text('End Value: $_endValue'),
+            RangeSlider(
+              values: RangeValues(_startValue, _endValue),
+              min: 0.0,
+              max: 100.0,
+              onChanged: (RangeValues values) {
+                setState(() {
+                  _startValue = values.start;
+                  _endValue = values.end;
+                });
+              },
             ),
-          ), */
-          const Spacer(),
-          ElevatedButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) => QuestionListQuestionQuiz(questionModel: questionModel),
-            ));
-          }, child: const Text('Start new quiz'),),
-        ],
+          ],
+        ),
       ),
-      )
     );
-  } 
+  }
 }
 

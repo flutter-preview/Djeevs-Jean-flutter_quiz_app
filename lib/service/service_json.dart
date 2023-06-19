@@ -27,7 +27,6 @@ class QuizResultDatabase {
       List<dynamic> data = jsonDecode(fileContent);
       final ddata = data.reversed;
       quizResults = ddata.map((result) => QuizResult.fromMap(result)).toList();
-      // quizResults = quizResults.r;
     }
 
     return quizResults;

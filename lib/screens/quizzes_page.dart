@@ -44,7 +44,8 @@ class _QuizzesTabState extends State<QuizzesTab> {
           onTap: () {
             // Naviguer vers la page de quiz pour cette catégorie
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) => IndexWidgetQuiz(questionModel: qmodel),
+                // builder: (context) => IndexWidgetQuiz(questionModel: qmodel),
+                builder: (context) => QuestionSelectionPage(questionModel: qmodel),
               ),
             );
           },

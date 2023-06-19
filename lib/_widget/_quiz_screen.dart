@@ -7,15 +7,14 @@ import 'package:flutter_quiz/model/question.dart';
 
 class QuestionListQuestionQuiz extends StatefulWidget {
   final QuestionModel questionModel;
-  const QuestionListQuestionQuiz({Key? key,  required this.questionModel}) : super(key: key);
+  final List<Question> questions;
+  const QuestionListQuestionQuiz({Key? key,  required this.questionModel, required this.questions}) : super(key: key);
 
   @override
   State<QuestionListQuestionQuiz> createState() => _QuestionListQuestionQuizState();
 }
 
 class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
-  List<Question> questions = [];
-  static String filePath = 'assets/languages/';
 
   int currentQuestionIndex = 0;
   int? selectedAnswerIndex;
@@ -24,21 +23,8 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   bool showNextButton = false;
   double progress = 0.0;
 
-  @override
-  void initState() {
-    super.initState();
-    loadQuestions();
-  }
-
-  void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
-    List<dynamic> jsonData = json.decode(data);
-    questions = jsonData.map((item) => Question.fromJson(item)).toList();
-    setState(() {});
-  }
-
   void checkAnswer() {
-    int correctAnswerIndex = questions[currentQuestionIndex].correctAnswerIndex;
+    int correctAnswerIndex = widget.questions[currentQuestionIndex].correctAnswerIndex;
     if (selectedAnswerIndex == correctAnswerIndex) {
       score++;
     }
@@ -51,13 +37,13 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
     selectedAnswerIndex = null;
     showCorrectAnswer = false;
     showNextButton = false;
-    progress = (currentQuestionIndex + 1) / questions.length;
+    progress = (currentQuestionIndex + 1) / widget.questions.length;
 
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < widget.questions.length - 1) {
       currentQuestionIndex++;
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute( builder: (context) =>
-          ResultScreen(score: score, totalQuestions: questions.length, titleQuiz: widget.questionModel.quizTitle),
+          ResultScreen(score: score, totalQuestions: widget.questions.length, titleQuiz: widget.questionModel.quizTitle),
         ),
       );
     }
@@ -65,7 +51,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   }
 
   double getScorePercentage() {
-    double percentage = (score / questions.length) * 100;
+    double percentage = (score / widget.questions.length) * 100;
     return percentage;
   }
 
@@ -82,7 +68,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
-        child: questions.isEmpty
+        child: widget.questions.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -90,13 +76,13 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
                 LinearProgressIndicator(value: progress, color: Colors.blue, backgroundColor: Colors.pink),
                 const SizedBox(height: 16),
                 Text(
-                  'Question ${currentQuestionIndex + 1}/${questions.length}',
+                  'Question ${currentQuestionIndex + 1}/${widget.questions.length}',
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 16),
                 QuestionSingle(
-                  question: questions[currentQuestionIndex],
+                  question: widget.questions[currentQuestionIndex],
                   selectedAnswerIndex: selectedAnswerIndex,
                   showCorrectAnswer: showCorrectAnswer,
                   onAnswerSelected: (index) {

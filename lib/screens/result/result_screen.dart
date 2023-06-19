@@ -9,7 +9,8 @@ class ResultScreen extends StatelessWidget {
   const ResultScreen({Key? key, required this.score, required this.totalQuestions, required this.titleQuiz})  : super(key: key);
 
   void saveScore() async{
-    final result = QuizResult(quizTitle: titleQuiz, score: double.parse(getScorePercentage().toStringAsFixed(1)));
+    final scores = double.parse(getScorePercentage().toStringAsFixed(1));
+    final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now());
     await QuizResultDatabase.saveQuizResult(result);
   }
 
