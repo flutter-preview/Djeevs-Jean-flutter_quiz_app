@@ -1,24 +1,212 @@
 [
-    {
-      "question": "Qu'est-ce qu'un objet en programmation orientée objet ?",
-      "options": [
-        "Une instance d'une classe qui peut avoir des propriétés et des méthodes",
-        "Un ensemble de variables globales",
-        "Un fichier contenant du code source",
-        "Un langage de programmation orienté objet"
-      ],
-      "correctAnswerIndex": 0
-    },
-    {
-      "question": "Qu'est-ce qu'une classe en programmation orientée objet ?",
-      "options": [
-        "Un groupe de fonctions",
-        "Un conteneur pour stocker des variables",
-        "Une collection d'objets",
-        "Un modèle pour créer des objets"
-      ],
-      "correctAnswerIndex": 3
-    }
-    
-  ]
-  
+  {
+    "question": "What is Python?",
+    "options": [
+      "A high-level programming language",
+      "A type of snake",
+      "A video game",
+      "A mathematical equation"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(3 * 'Hello')\n```",
+    "options": [
+      "Hello",
+      "3",
+      "HelloHelloHello",
+      "An error occurs"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which keyword is used to define a function in Python?",
+    "options": [
+      "method",
+      "def",
+      "function",
+      "define"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What does the 'self' parameter represent in a class method?",
+    "options": [
+      "It refers to the current instance of the class",
+      "It is a reserved keyword and has no specific meaning",
+      "It is used to create a new instance of the class",
+      "It represents the superclass of the class"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which operator is used for exponentiation in Python?",
+    "options": [
+      "**",
+      "^",
+      "//",
+      ">>"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(5 > 3 and 2 < 4)\n```",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which data type is mutable in Python?",
+    "options": [
+      "List",
+      "Tuple",
+      "String",
+      "Dictionary"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'pass' statement in Python?",
+    "options": [
+      "To terminate a loop",
+      "To skip the current iteration of a loop",
+      "To execute a block of code repeatedly",
+      "To do nothing or indicate a placeholder"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(type(42.0))\n```",
+    "options": [
+      "int",
+      "float",
+      "str",
+      "bool"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which module is used for working with dates and times in Python?",
+    "options": [
+      "datetime",
+      "time",
+      "date",
+      "calendar"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the result of the following code?\n\n```python\nprint(10 % 3)\n```",
+    "options": [
+      "3",
+      "1",
+      "0",
+      "10"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which statement is used to raise an exception in Python?",
+    "options": [
+      "continue",
+      "pass",
+      "break",
+      "raise"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(len([1, [2, 3], 4]))\n```",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which method is used to remove an item from a list in Python?",
+    "options": [
+      "pop()",
+      "remove()",
+      "delete()",
+      "discard()"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(2 ** 3 ** 2)\n```",
+    "options": [
+      "72",
+      "512",
+      "81",
+      "14"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which operator is used for floor division in Python?",
+    "options": [
+      "//",
+      "/",
+      "%",
+      ">>"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'import' keyword in Python?",
+    "options": [
+      "To define a new module",
+      "To include external libraries or modules",
+      "To create a package",
+      "To declare a class"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint(4 < 5 or not 6 > 7)\n```",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which statement is used to exit a loop in Python?",
+    "options": [
+      "break",
+      "exit",
+      "continue",
+      "return"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```python\nprint('Hello' + 42)\n```",
+    "options": [
+      "Hello42",
+      "TypeError",
+      "Hello",
+      "42"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which method is used to convert a string to uppercase in Python?",
+    "options": [
+      "uppercase()",
+      "to_upper()",
+      "upper()",
+      "to_uppercase()"
+    ],
+    "correctAnswerIndex": 2
+  }
+]
