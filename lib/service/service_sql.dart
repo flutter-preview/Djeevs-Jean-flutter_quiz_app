@@ -1,4 +1,4 @@
-import 'package:sqflite/sqflite.dart';
+/* import 'package:sqflite/sqflite.dart';
 import 'package:flutter_quiz/model/question.dart';
 
 import 'package:path/path.dart';
@@ -40,3 +40,4 @@ class QuizResultDatabase {
     await db.delete(tableName);
   }
 }
+ */
