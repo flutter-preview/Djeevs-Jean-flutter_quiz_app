@@ -61,13 +61,15 @@ class QuizResult {
 class QuestionModel {
   String quizTitle;
   String file;
+  String image;
 
-  QuestionModel({required this.quizTitle, required this.file});
+  QuestionModel({required this.quizTitle, required this.file, required this.image});
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) {
     return QuestionModel(
       quizTitle: json['quizTitle'],
       file: json['file'],
+      image: json['image'],
     );
   }
 }
