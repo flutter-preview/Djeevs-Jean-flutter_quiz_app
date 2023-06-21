@@ -71,22 +71,6 @@ class _MainScreenState extends State<MainScreen> {
                   // Code pour naviguer vers la page d'accueil
                 },
               ),
-              /* ListTile(
-                leading: const Icon(Icons.library_books),
-                title: const Text('Leçons'),
-                onTap: () {
-                  // Code pour naviguer vers la page des leçons
-    
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.music_note),
-                title: const Text('Partitions'),
-                onTap: () {
-                  // _onItemTapped(2);
-                  // Navigator.pop(context);
-                },
-              ), */
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Se déconnecter'),
@@ -102,11 +86,52 @@ class _MainScreenState extends State<MainScreen> {
                   Navigator.pop(context);
                 },
               ),
+              ListTile(
+                leading: const Icon(Icons.language),
+                title: Text('Choisir la langue'),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return LanguageSelectionDialog();
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),
         body: const TabBarView(  children: [QuizzesTab(), ActivityTab(), IndexTab(), ], ),
       ),
+    );
+  }
+}
+
+class LanguageSelectionDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+      title: const Text('Choisir la langue'),
+      children: [
+        RadioListTile(
+          title: const Text('Français'),
+          value: 'fr',
+          groupValue: 'currentLanguage', // Replace 'currentLanguage' with your current language variable
+          onChanged: (value) {
+            // Update the language to French
+            // Example code: languageController.setLanguage('fr');
+          },
+        ),
+        RadioListTile(
+          title: const Text('English'),
+          value: 'en',
+          groupValue: 'currentLanguage', // Replace 'currentLanguage' with your current language variable
+          onChanged: (value) {
+            // Update the language to English
+            // Example code: languageController.setLanguage('en');
+          },
+        ),
+      ],
     );
   }
 }

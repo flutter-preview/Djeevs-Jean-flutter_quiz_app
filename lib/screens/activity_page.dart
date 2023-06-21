@@ -53,7 +53,7 @@ class _ActivityTabState extends State<ActivityTab> {
                     Row(
                       children: [
                         Icon(Icons.date_range),
-                        Text('Date: ${DateFormat('MMM d, h:mm a').format(DateTime.now())}'),
+                        Text('Date: ${DateFormat('MMM d, h:mm a').format(quizResult.date)}'),
 
 
                         // Text('Date: ${DateFormat('yyyy-MM-dd').format(quizResult.date)}'),
