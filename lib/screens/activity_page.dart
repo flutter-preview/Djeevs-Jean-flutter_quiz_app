@@ -30,7 +30,7 @@ class _ActivityTabState extends State<ActivityTab> {
         } else if (snapshot.hasData) {
           List<QuizResult> quizResults = snapshot.data!;
           return ListView.builder(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             itemCount: quizResults.length,
             itemBuilder: (context, index) {
               QuizResult quizResult = quizResults[index];

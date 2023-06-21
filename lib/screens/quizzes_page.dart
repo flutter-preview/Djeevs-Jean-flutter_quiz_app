@@ -14,7 +14,6 @@ class _QuizzesTabState extends State<QuizzesTab> {
   List<QuestionModel> questionsModel = [];
   static String filePath = 'assets/conf/conf.json';
 
-
   @override
   void initState() {
     super.initState();
@@ -23,7 +22,6 @@ class _QuizzesTabState extends State<QuizzesTab> {
 
   void loadQuestionsModel() async {
     String data = await DefaultAssetBundle.of(context).loadString(filePath);
-
     List<dynamic> jsonData = json.decode(data);
     questionsModel = jsonData.map((item) => QuestionModel.fromJson(item)).toList();
     setState(() {});
@@ -32,55 +30,59 @@ class _QuizzesTabState extends State<QuizzesTab> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Nombre de colonnes souhaité
+        crossAxisCount: 2,
+        crossAxisSpacing: 16,
+        mainAxisSpacing: 16,
       ),
       itemCount: questionsModel.length,
       itemBuilder: (context, index) {
         final qmodel = questionsModel[index];
         return InkWell(
           onTap: () {
-            // Naviguer vers la page de quiz pour cette catégorie
-            Navigator.push(context, MaterialPageRoute(
-                // builder: (context) => IndexWidgetQuiz(questionModel: qmodel),
+            Navigator.push(
+              context,
+              MaterialPageRoute(
                 builder: (context) => QuestionSelectionPage(questionModel: qmodel),
               ),
             );
           },
-          child: SizedBox(
-            height: 422,
-            child: Card(
+          child: Card(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            elevation: 4,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 10,),
-                const Center(child: CircleAvatar(backgroundImage: NetworkImage("https://placehold.co/600x400/png"),)),
-                const SizedBox(height: 10,),
-                Text(qmodel.quizTitle),
-                const SizedBox(height: 10,),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[200]
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                      image: DecorationImage(
+                        image: NetworkImage("https://placehold.co/600x400/png"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ), 
+                  ),
                 ),
-
-                // Spacer()
-                // Container(
-                //   child: ,
-                // ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    qmodel.quizTitle,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ],
-            )
             ),
           ),
-          );
-        },
-      );
-    }
+        );
+      },
+    );
+  }
 }
+
 
 /* child: ListTile(
         leading: const CircleAvatar(backgroundImage: NetworkImage("https://placehold.co/600x400/png"),),
