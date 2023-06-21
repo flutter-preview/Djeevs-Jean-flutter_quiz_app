@@ -31,21 +31,20 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Quiz Completed!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            const SizedBox(height: 16),
             Text(
-              'Your score is : $score / $totalQuestions',
-              style: const TextStyle(fontSize: 20),
-            ),
-            Text(
-              'Equivalent : ${getScorePercentage().toStringAsFixed(1)}%',
+              'Your score: $score / $totalQuestions',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 16),
+            Text(
+              'Equivalent: ${getScorePercentage().toStringAsFixed(1)}%',
+              style: const TextStyle(fontSize: 20),
+            ),
             
             const SizedBox(height: 16),
             ElevatedButton(
@@ -53,7 +52,7 @@ class ResultScreen extends StatelessWidget {
                 // Navigator.pop(context);
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  MaterialPageRoute(builder: (context) => const MainScreen()),
                   (route) => false,
                 );
               },
