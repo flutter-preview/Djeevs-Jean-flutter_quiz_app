@@ -49,16 +49,16 @@ class _MainScreenState extends State<MainScreen> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             const UserAccountsDrawerHeader(
-              accountName: Text('I Love Music'),
-              accountEmail: Text('contact@ilovemusic.com'),
+              accountName: Text('Quiz App'),
+              accountEmail: Text('quizapp@dev.com'),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage('assets/img/welcome.gif'),
+                  backgroundImage: AssetImage('assets/images/quiz1.jpg'),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
               ),
-              ListTile(
+              /* ListTile(
                 leading: const Icon(Icons.login),
                 title: const Text('Se connecter'),
                 onTap: () {
@@ -86,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
                   // _onItemTapped(1);
                   Navigator.pop(context);
                 },
-              ),
+              ), */
               ListTile(
                 leading: const Icon(Icons.language),
                 title: Text('Choisir la langue'),

@@ -33,6 +33,11 @@
     "quizTitle": "SQL",
     "image": "assets/images/sql.png",
     "file": "sql"
+  },
+  {
+    "quizTitle": "Dart",
+    "image": "assets/images/dart.png",
+    "file": "dart"
   }
   
 ]
