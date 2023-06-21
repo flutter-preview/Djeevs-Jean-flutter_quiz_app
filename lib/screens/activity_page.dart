@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/service/service_json.dart';
-
+import 'package:intl/intl.dart';
 import 'package:flutter_quiz/model/question.dart';
 
 class ActivityTab extends StatefulWidget {
@@ -30,17 +30,15 @@ class _ActivityTabState extends State<ActivityTab> {
         } else if (snapshot.hasData) {
           List<QuizResult> quizResults = snapshot.data!;
           return ListView.builder(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(8),
             itemCount: quizResults.length,
             itemBuilder: (context, index) {
               QuizResult quizResult = quizResults[index];
 
                   // Format the date manually
-              String formattedDate = '${quizResult.date.year}-${quizResult.date.month.toString().padLeft(2, '0')}-${quizResult.date.day.toString().padLeft(2, '0')}';
-    
-
-
-              return ListTile(
+                  // String formattedDate = '${quizResult.date.year}-${quizResult.date.month.toString().padLeft(2, '0')}-${quizResult.date.day.toString().padLeft(2, '0')}';
+  
+                return ListTile(
                 // leading: Icon(Icons.quiz),
                 title: Text('Quiz: ${quizResult.quizTitle}'),
                 subtitle: Column(
@@ -49,13 +47,14 @@ class _ActivityTabState extends State<ActivityTab> {
                     Row(
                       children: [
                         Icon(Icons.score),
-                        Text('Score: ${quizResult.score}'),
+                        Text('Score: ${quizResult.score}%'),
                       ],
                     ),
                     Row(
                       children: [
                         Icon(Icons.date_range),
-                        Text('Date: $formattedDate'),
+                        Text('Date: ${DateFormat('MMM d, h:mm a').format(DateTime.now())}'),
+
 
                         // Text('Date: ${DateFormat('yyyy-MM-dd').format(quizResult.date)}'),
                       ],
