@@ -30,17 +30,42 @@ class _ActivityTabState extends State<ActivityTab> {
         } else if (snapshot.hasData) {
           List<QuizResult> quizResults = snapshot.data!;
           return ListView.builder(
+            padding: EdgeInsets.all(10),
             itemCount: quizResults.length,
             itemBuilder: (context, index) {
-              QuizResult result = quizResults[index];
+              QuizResult quizResult = quizResults[index];
+
+                  // Format the date manually
+              String formattedDate = '${quizResult.date.year}-${quizResult.date.month.toString().padLeft(2, '0')}-${quizResult.date.day.toString().padLeft(2, '0')}';
+    
+
+
               return ListTile(
-                title: Text('Quiz: ${result.quizTitle}'),
+                // leading: Icon(Icons.quiz),
+                title: Text('Quiz: ${quizResult.quizTitle}'),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Score: ${result.score}'),
-                    Text('Date: ${result.date}'),
-                    Text('num questions: ${result.count}'),
+                    Row(
+                      children: [
+                        Icon(Icons.score),
+                        Text('Score: ${quizResult.score}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.date_range),
+                        Text('Date: $formattedDate'),
+
+                        // Text('Date: ${DateFormat('yyyy-MM-dd').format(quizResult.date)}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.question_answer),
+                        Text('Number of questions: ${quizResult.countQuestion}'),
+                      ],
+                    ),
                   ],
                 ),
               );

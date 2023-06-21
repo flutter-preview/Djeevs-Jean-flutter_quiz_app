@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/_quiz_screen.dart';
@@ -73,13 +74,17 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
   }
 
   void loadQuestions() async {
-    String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
-    List<dynamic> jsonData = json.decode(data);
-    questions = jsonData.map((item) => Question.fromJson(item)).toList();
-    setState(() {
-      maxQuestionCount = questions.length;
-    });
-  }
+  String data = await DefaultAssetBundle.of(context).loadString('$filePath${widget.questionModel.file}.json');
+  List<dynamic> jsonData = json.decode(data);
+  questions = jsonData.map((item) => Question.fromJson(item)).toList();
+
+  // Shuffle the list of questions
+  questions.shuffle(Random());
+
+  setState(() {
+    maxQuestionCount = questions.length;
+  });
+}
 
   @override
   void setState(VoidCallback fn) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/main.dart';
 import 'package:flutter_quiz/service/service_json.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
@@ -10,7 +11,7 @@ class ResultScreen extends StatelessWidget {
 
   void saveScore(count) async{
     final scores = double.parse(getScorePercentage().toStringAsFixed(1));
-    final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now(), count: count);
+    final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now(), countQuestion: count);
     await QuizResultDatabase.saveQuizResult(result);
   }
 
@@ -49,7 +50,12 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                // Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  (route) => false,
+                );
               },
               child: const Text('Go to Home'),
             ),
