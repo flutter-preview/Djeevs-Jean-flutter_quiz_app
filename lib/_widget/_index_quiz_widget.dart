@@ -105,11 +105,39 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 15,),
-            Text(
-              'Select the number of questions:',
-              style: TextStyle(fontSize: 16),
+
+            Expanded(
+              child: FractionallySizedBox(
+                alignment: Alignment.bottomCenter,
+                heightFactor: 0.5,
+                child: SizedBox(
+                // height: 120, // Hauteur souhaitée
+                child: Card(
+                  color: Colors.blue.withOpacity(0.3),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Select the number of questions you want to have for this quiz.',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
+              ),
+              ),
             ),
+
+
+            SizedBox(height: 15,),
+
+            Center(child: Text(_selectedQuestion.toInt().toString())),
+
+            SizedBox(height: 15,),
+
+
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                 activeTrackColor: Colors.blue,
@@ -132,7 +160,6 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
               ),
             ),
 
-          Text("Nombre de question $_selectedQuestion"),
           const Spacer(),
             ElevatedButton(
               onPressed: isButtonDisabled
@@ -149,7 +176,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
                         ),
                       );
                     },
-              child: Text('Start Quiz'),
+              child: const Text('Start Quiz'),
             ),
           ],
         ),

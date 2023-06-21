@@ -46,7 +46,7 @@ class QuestionSingle extends StatelessWidget {
               ),
               child: ListTile(
                 title: Text(optionText,style: TextStyle( fontSize: 16,
-                color: isSelectedAnswer ? Colors.amberAccent : showCorrectAnswer && isCorrectAnswer ? Colors.green : null,),
+                color: isSelectedAnswer ? Colors.blue : showCorrectAnswer && isCorrectAnswer ? Colors.green : null,),
                 ),
                 trailing: showCorrectAnswer ? isCorrectAnswer  ? const Icon(Icons.check, color: Colors.green)
                         : isSelectedAnswer ? const Icon(Icons.close, color: Colors.red) : null
