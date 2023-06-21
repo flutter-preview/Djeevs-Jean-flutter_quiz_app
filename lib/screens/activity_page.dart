@@ -62,7 +62,7 @@ class _ActivityTabState extends State<ActivityTab> {
                     Row(
                       children: [
                         Icon(Icons.question_answer),
-                        Text('Number of questions: ${quizResult.countQuestion}'),
+                        Text('${quizResult.countQuestion} questions'),
                       ],
                     ),
                   ],

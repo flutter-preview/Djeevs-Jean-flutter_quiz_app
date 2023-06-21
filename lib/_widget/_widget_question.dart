@@ -13,7 +13,8 @@ class QuestionSingle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SingleChildScrollView(
+      child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Text(question.category!, style: const TextStyle(fontSize: 18), textAlign: TextAlign.center,),
@@ -56,6 +57,7 @@ class QuestionSingle extends StatelessWidget {
         }),
         const SizedBox(height: 16),
       ],
+    ),
     );
   }
 }
