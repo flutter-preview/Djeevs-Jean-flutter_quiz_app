@@ -8,9 +8,9 @@ class ResultScreen extends StatelessWidget {
 
   const ResultScreen({Key? key, required this.score, required this.totalQuestions, required this.titleQuiz})  : super(key: key);
 
-  void saveScore() async{
+  void saveScore(count) async{
     final scores = double.parse(getScorePercentage().toStringAsFixed(1));
-    final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now());
+    final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now(), count: count);
     await QuizResultDatabase.saveQuizResult(result);
   }
 
@@ -21,7 +21,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    saveScore();
+    saveScore(totalQuestions);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz Results'),

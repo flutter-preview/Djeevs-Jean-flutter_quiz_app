@@ -82,6 +82,12 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
   }
 
   @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     bool isButtonDisabled = _selectedQuestion == 0 || _selectedQuestion > maxQuestionCount;
 
@@ -94,6 +100,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            SizedBox(height: 15,),
             Text(
               'Select the number of questions:',
               style: TextStyle(fontSize: 16),
@@ -119,6 +126,9 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
                 },
               ),
             ),
+
+          Text("Nombre de question $_selectedQuestion"),
+          const Spacer(),
             ElevatedButton(
               onPressed: isButtonDisabled
                   ? null

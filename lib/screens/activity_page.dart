@@ -40,6 +40,7 @@ class _ActivityTabState extends State<ActivityTab> {
                   children: [
                     Text('Score: ${result.score}'),
                     Text('Date: ${result.date}'),
+                    Text('num questions: ${result.count}'),
                   ],
                 ),
               );
