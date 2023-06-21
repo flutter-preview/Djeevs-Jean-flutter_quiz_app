@@ -59,7 +59,8 @@ class _QuizzesTabState extends State<QuizzesTab> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
                       image: DecorationImage(
-                        image: NetworkImage("https://placehold.co/600x400/png"),
+                        image: AssetImage(qmodel.file),
+                        // image: AssetImage(qmodel.file),
                         fit: BoxFit.cover,
                       ),
                     ),
