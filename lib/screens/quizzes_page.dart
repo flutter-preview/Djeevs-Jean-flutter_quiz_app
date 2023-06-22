@@ -83,26 +83,3 @@ class _QuizzesTabState extends State<QuizzesTab> {
     );
   }
 }
-
-
-/* child: ListTile(
-        leading: const CircleAvatar(backgroundImage: NetworkImage("https://placehold.co/600x400/png"),),
-        title: Text('personnage.nom'),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Profession:'),
-            Text('Date de naissance: '),
-            Text('Lieu de naissance: '),
-          ],
-        ),
-        // onTap: () {
-          // Code pour gérer le clic sur le personnage
-          // Navigator.push(
-          // context,
-          // MaterialPageRoute(
-          //   // builder: (context) => ArticleDetailPage(personnage: personnage),
-          // ),
-        // );
-        // },
-      ), */

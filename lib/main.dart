@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/screens/index_page.dart';
 import 'package:flutter_quiz/screens/activity_page.dart';
 import 'package:flutter_quiz/screens/quizzes_page.dart';
 
