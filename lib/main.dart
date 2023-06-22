@@ -134,7 +134,7 @@ class _MainScreenState extends State<MainScreen> {
             ],
           ),
         ),
-        body: const TabBarView(  children: [QuizzesTab(), ActivityTab()
+        body: TabBarView(  children: [QuizzesTab(), ActivityTab()
         //, IndexTab(),
          ], ),
       ),

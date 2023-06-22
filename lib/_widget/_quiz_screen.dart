@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/_widget_question.dart';
 import 'package:flutter_quiz/screens/result/result_screen.dart';
 import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/main.dart'; // Importez le fichier contenant MainScreen
 
 class QuestionListQuestionQuiz extends StatefulWidget {
   final QuestionModel questionModel;
@@ -26,6 +28,47 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
   bool showNextButton = false;
   double progress = 0.0;
 
+
+  Future<bool> _onWillPop() async {
+  bool? shouldPop = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Confirmation'),
+        content: const Text('Voulez-vous vraiment quitter le quiz ? Vos modifications seront perdues.'),
+        actions: <Widget>[
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop(false); // L'utilisateur choisit de ne pas quitter
+            },
+            child: const Text('Non'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop(true); // L'utilisateur choisit de quitter
+            },
+            child: const Text('Oui'),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (shouldPop == true) {
+    // Ferme la page courante et navigue vers la page d'accueil
+    // Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+    Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainScreen()),
+                  (route) => false,
+                );
+  }
+
+  return Future.value(shouldPop ?? false); // Retourne false par défaut si la boîte de dialogue est fermée sans sélection
+}
+
+
+
   void checkAnswer() {
     int correctAnswerIndex =
         widget.questions[currentQuestionIndex].correctAnswerIndex;
@@ -46,16 +89,8 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
     if (currentQuestionIndex < widget.questions.length - 1) {
       currentQuestionIndex++;
     } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ResultScreen(
-            score: score,
-            totalQuestions: widget.questions.length,
-            titleQuiz: widget.questionModel.quizTitle,
-          ),
-        ),
-      );
+      Navigator.of(context).pop(true); // Fermer la page et retourner à l'accueil
+      return;
     }
     setState(() {});
   }
@@ -72,64 +107,72 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Quiz App'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: widget.questions.isEmpty
-            ? const Center(child: CircularProgressIndicator())
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  LinearProgressIndicator(
-                    value: progress,
-                    color: Colors.blue,
-                    backgroundColor: Colors.pink,
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Question ${currentQuestionIndex + 1}/${widget.questions.length}',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Quiz App'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: widget.questions.isEmpty
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    LinearProgressIndicator(
+                      value: progress,
+                      color: Colors.blue,
+                      backgroundColor: Colors.pink,
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  QuestionSingle(
-                    question: widget.questions[currentQuestionIndex],
-                    selectedAnswerIndex: selectedAnswerIndex,
-                    showCorrectAnswer: showCorrectAnswer,
-                    onAnswerSelected: (index) {
-                      setState(() {
-                        selectedAnswerIndex = index;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  if (!showNextButton)
-                    ElevatedButton(
-                      onPressed: selectedAnswerIndex == null || showCorrectAnswer
-                          ? null
-                          : () {
-                              checkAnswer();
-                            },
-                      child: const Text('Check Answer'),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Question ${currentQuestionIndex + 1}/${widget.questions.length}',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                  const SizedBox(height: 16),
-                  if (showNextButton)
-                    ElevatedButton(
-                      onPressed: () {
-                        showNextQuestion();
+                    const SizedBox(height: 16),
+                    QuestionSingle(
+                      question: widget.questions[currentQuestionIndex],
+                      selectedAnswerIndex: selectedAnswerIndex,
+                      showCorrectAnswer: showCorrectAnswer,
+                      onAnswerSelected: (index) {
+                        setState(() {
+                          selectedAnswerIndex = index;
+                        });
                       },
-                      child: const Text('Next Question'),
                     ),
-                  const SizedBox(height: 16),
-                ],
-              ),
+                    const SizedBox(height: 16),
+                    if (!showNextButton)
+                      ElevatedButton(
+                        onPressed: selectedAnswerIndex == null || showCorrectAnswer
+                            ? null
+                            : () {
+                                checkAnswer();
+                              },
+                        child: const Text('Check Answer'),
+                      ),
+                    const SizedBox(height: 16),
+                    if (showNextButton)
+                      ElevatedButton(
+                        onPressed: () {
+                          showNextQuestion();
+                        },
+                        child: const Text('Next Question'),
+                      ),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
