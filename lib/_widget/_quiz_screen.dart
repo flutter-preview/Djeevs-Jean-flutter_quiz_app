@@ -2,14 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/_widget_question.dart';
 import 'dart:convert';
 import 'package:flutter_quiz/screens/result/result_screen.dart';
-
-import 'package:flutter_quiz/model/question.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_quiz/_widget/_widget_question.dart';
-import 'dart:convert';
-import 'package:flutter_quiz/screens/result/result_screen.dart';
-
 import 'package:flutter_quiz/model/question.dart';
 
 class QuestionListQuestionQuiz extends StatefulWidget {

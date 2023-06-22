@@ -32,7 +32,6 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Tab> tabs = const [
     Tab(text: 'Quizzes'), Tab(text: 'Activity')
-    // , Tab(text: 'Index'),
   ];
    @override
   Widget build(BuildContext context) {
@@ -98,6 +97,40 @@ class _MainScreenState extends State<MainScreen> {
                   );
                 },
               ),
+
+              /*ListTile(
+                 leading: Icon(Icons.language),
+                title: Text('Change Language'),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Select Language'),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ListTile(
+                              title: Text('English'),
+                              onTap: () {
+                                EasyLocalization.of(context).locale = Locale('en', 'US');
+                                Navigator.pop(context);
+                              },
+                            ),
+                            ListTile(
+                              title: Text('French'),
+                              onTap: () {
+                                EasyLocalization.of(context).locale = Locale('fr', 'FR');
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              ), */
             ],
           ),
         ),
