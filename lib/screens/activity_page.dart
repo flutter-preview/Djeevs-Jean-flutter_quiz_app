@@ -40,7 +40,7 @@ class _ActivityTabState extends State<ActivityTab> {
   
                 return ListTile(
                 // leading: Icon(Icons.quiz),
-                title: Text('Quiz: ${quizResult.quizTitle}'),
+                title: Text('Quiz: ${quizResult.quizTitle}', style: TextStyle(fontWeight: FontWeight.bold),),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
