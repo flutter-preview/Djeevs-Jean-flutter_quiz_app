@@ -104,50 +104,36 @@ class _MainScreenState extends State<MainScreen> {
 class LanguageSelectionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SimpleDialog(
+      title: const Text('Choisir la langue'),
       children: [
-        ElevatedButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return SimpleDialog(
-                  title: const Text('Choisir la langue'),
-                  children: [
-                    RadioListTile(
-                      title: const Text('Kreyol'),
-                      value: 'HT',
-                      groupValue: context.locale.countryCode, // Utilise le code de pays de la langue actuelle comme valeur de groupe
-                      onChanged: (value) {
-                        // Met à jour la langue vers le créole haïtien
-                        context.setLocale(Locale('en', 'HT'));
-                        Navigator.of(context).pop(); // Ferme le dialogue
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => MainScreen()),
-                          (route) => false,
-                        ); // Navigue vers MainScreen et ferme les autres routes
-                      },
-                    ),
-                    RadioListTile(
-                      title: const Text('English'),
-                      value: 'US',
-                      groupValue: context.locale.countryCode, // Utilise le code de pays de la langue actuelle comme valeur de groupe
-                      onChanged: (value) {
-                        // Met à jour la langue vers l'anglais
-                        context.setLocale(Locale('en', 'US'));
-                        Navigator.of(context).pop(); // Ferme le dialogue
-                        Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => MainScreen()),
-                          (route) => false,
-                        ); // Navigue vers MainScreen et ferme les autres routes
-                      },
-                    ),
-                  ],
-                );
-              },
-            );
+        RadioListTile(
+          title: const Text('Kreyol'),
+          value: 'HT',
+          groupValue: context.locale.countryCode, // Utilise le code de pays de la langue actuelle comme valeur de groupe
+          onChanged: (value) {
+            // Met à jour la langue vers le créole haïtien
+            context.setLocale(Locale('en', 'HT'));
+            Navigator.of(context).pop(); // Ferme le dialogue
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => MainScreen()),
+              (route) => false,
+            ); // Navigue vers MainScreen et ferme les autres routes
           },
-          child: Text('Langue actuelle: ${context.locale.languageCode}-${context.locale.countryCode}'), // Affiche la langue actuelle
+        ),
+        RadioListTile(
+          title: const Text('English'),
+          value: 'US',
+          groupValue: context.locale.countryCode, // Utilise le code de pays de la langue actuelle comme valeur de groupe
+          onChanged: (value) {
+            // Met à jour la langue vers l'anglais
+            context.setLocale(Locale('en', 'US'));
+            Navigator.of(context).pop(); // Ferme le dialogue
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => MainScreen()),
+              (route) => false,
+            ); // Navigue vers MainScreen et ferme les autres routes
+          },
         ),
       ],
     );
