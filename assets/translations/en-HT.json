@@ -1,3 +1,7 @@
 {
-    "apptitle":"Kwiz Aplikasyon"
+    "apptitle":"Kwiz Aplikasyon",
+    "btnstartquiz":"Demare Kwiz",
+    "indexquiz": "Select the number of questions you want to have for this quiz.",
+    "labelquiz": "Quiz Yo"
+
 }
