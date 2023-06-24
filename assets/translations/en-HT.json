@@ -2,6 +2,9 @@
     "apptitle":"Kwiz Aplikasyon",
     "btnstartquiz":"Demare Kwiz",
     "indexquiz": "Select the number of questions you want to have for this quiz.",
-    "labelquiz": "Quiz Yo"
+    "labelquiz": "Kwiz Yo",
+    "labelactivity": "Aktivite Yo",
+    "activityname": "Kwiz",
+    "chooselanguage": "Chwazi yon langaj"
 
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/service/service_json.dart';
 // import 'package:intl/intl.dart';
@@ -40,7 +41,7 @@ class _ActivityTabState extends State<ActivityTab> {
   
                 return ListTile(
                 // leading: Icon(Icons.quiz),
-                title: Text('Quiz: ${quizResult.quizTitle}', style: TextStyle(fontWeight: FontWeight.bold),),
+                title: Text('activityname'.tr()+' : ${quizResult.quizTitle}', style: TextStyle(fontWeight: FontWeight.bold),),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

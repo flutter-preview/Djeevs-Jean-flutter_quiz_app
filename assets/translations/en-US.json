@@ -2,5 +2,8 @@
     "apptitle":"Quiz JESUS",
     "btnstartquiz":"Start Quiz",
     "indexquiz": "Select the number of questions you want to have for this quiz.",
-    "labelquiz": "Quizzes"
+    "labelquiz": "Quizzes",
+    "labelactivity": "Activity",
+    "activityname": "Quiz",
+    "chooselanguage": "Choose language"
 }

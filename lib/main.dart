@@ -46,8 +46,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-  final List<Tab> tabs = const [
-    Tab(text: 'Quizzes'), Tab(text: 'Activity')
+  final List<Tab> tabs = [
+    Tab(text: 'labelquiz'.tr().toString()), Tab(text: 'labelactivity'.tr().toString())
   ];
    @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class _MainScreenState extends State<MainScreen> {
               
               ListTile(
                 leading: const Icon(Icons.language),
-                title: Text('Choisir la langue'),
+                title: Text('chooselanguage'.tr()),
                 onTap: () {
                   showDialog(
                     context: context,
