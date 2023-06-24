@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/service/service_json.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 import 'package:flutter_quiz/model/question.dart';
 
 class ActivityTab extends StatefulWidget {
@@ -53,7 +53,7 @@ class _ActivityTabState extends State<ActivityTab> {
                     Row(
                       children: [
                         Icon(Icons.date_range),
-                        Text('Date: ${DateFormat('MMM d, h:mm a').format(quizResult.date)}'),
+                        Text('Date: $quizResult.date'),
 
 
                         // Text('Date: ${DateFormat('yyyy-MM-dd').format(quizResult.date)}'),

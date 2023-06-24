@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/activity_page.dart';
 import 'package:flutter_quiz/screens/quizzes_page.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en', 'US'), Locale('en', 'HT')],
+      path: 'assets/translations', // <-- change the path of the translation files 
+      fallbackLocale: Locale('en', 'HT'),
+      child: MyApp()
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +29,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainScreen(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      home: MainScreen(),
     );
   }
 }
@@ -35,11 +51,15 @@ class _MainScreenState extends State<MainScreen> {
   ];
    @override
   Widget build(BuildContext context) {
+    // context.locale = Locale('en', 'HT');
+
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Quiz App'),
+          title: Text('apptitle'.tr().toString()),
+          
+          // title: const Text('Quiz App'),
           bottom: TabBar(tabs: tabs),
         ),
         drawer: Drawer(
