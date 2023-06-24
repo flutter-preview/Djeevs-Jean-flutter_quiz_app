@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/_widget/_quiz_screen.dart';
 import 'package:flutter_quiz/model/question.dart';
@@ -54,7 +55,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz - ${widget.questionModel.quizTitle}'),
+        title: Text('quizname'.tr()  +'- ${widget.questionModel.quizTitle}'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 10),
@@ -76,9 +77,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
                   child: Container(
                     padding: const EdgeInsets.all(10.0),
                     alignment: Alignment.center,
-                    child: const Text(
-                      'Select the number of questions you want to have for this quiz.',
-                      style: TextStyle(fontSize: 16),
+                    child: Text('indexquiz'.tr(),style: TextStyle(fontSize: 16),
                     ),
                   ),
                 ),
@@ -132,7 +131,7 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
                         ),
                       );
                     },
-              child: const Text('Start Quiz'),
+              child: Text('btnstartquiz'.tr().toString()),
             ),
           ],
         ),

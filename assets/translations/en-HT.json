@@ -1,10 +1,11 @@
 {
     "apptitle":"Kwiz Aplikasyon",
     "btnstartquiz":"Demare Kwiz",
-    "indexquiz": "Select the number of questions you want to have for this quiz.",
+    "indexquiz": "Chwazi kantite kesyon ou vle genyen pou egzamen sa a.",
     "labelquiz": "Kwiz Yo",
     "labelactivity": "Aktivite Yo",
     "activityname": "Kwiz",
+    "quizname": "Kwiz",
     "chooselanguage": "Chwazi yon langaj"
 
 }
