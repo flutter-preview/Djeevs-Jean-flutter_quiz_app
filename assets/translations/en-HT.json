@@ -6,6 +6,14 @@
     "labelactivity": "Aktivite Yo",
     "activityname": "Kwiz",
     "quizname": "Kwiz",
-    "chooselanguage": "Chwazi yon langaj"
+    "chooselanguage": "Chwazi yon langaj",
+    "about": "Konsènan",
+    "about1": "Byenveni nan aplikasyon egzamen nou an!",
+    "about2": "Aplikasyon nou an pèmèt ou teste konesans ou nan diferan lang pwogramasyon, tankou Python, Java, C++, Android, HTML, JavaScript, SQL ak Dart.",
+    "about3": "Karakteristik prensipal:",
+    "about4": "- Chwazi nan yon varyete tès nan diferan lang pwogramasyon.",
+    "about5": "- Reponn kesyon chwa miltip pou teste konpetans ou.",
+    "about6": "- Jwenn nòt pou chak egzamen epi swiv pwogrè ou.",
+    "about7": "Nou espere aplikasyon nou an pral ede w apwofondi konesans pwogram ou epi pran plezi an menm tan!"
 
 }

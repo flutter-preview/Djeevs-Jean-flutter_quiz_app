@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FAQPage extends StatelessWidget {
@@ -39,7 +40,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('À propos de l\'application'),
+        title: Text('about'.tr()),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -47,7 +48,7 @@ class AboutPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Bienvenue dans notre application de quiz !',
+              'about1'.tr(),
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
@@ -55,12 +56,12 @@ class AboutPage extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             Text(
-              'Notre application vous permet de tester vos connaissances dans différents langages de programmation, tels que Python, Java, C++, Android, HTML, JavaScript, SQL et Dart.',
+              'about2'.tr(),
               style: TextStyle(fontSize: 16.0),
             ),
             SizedBox(height: 16.0),
             Text(
-              'Fonctionnalités principales :',
+              'about3'.tr(),
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
@@ -68,20 +69,20 @@ class AboutPage extends StatelessWidget {
             ),
             SizedBox(height: 8.0),
             Text(
-              '- Choix parmi une variété de quiz dans différents langages de programmation.',
+              'about4'.tr(),
               style: TextStyle(fontSize: 16.0),
             ),
             Text(
-              '- Répondez à des questions à choix multiples pour tester vos compétences.',
+              'about5'.tr(),
               style: TextStyle(fontSize: 16.0),
             ),
             Text(
-              '- Obtenez des scores pour chaque quiz et suivez votre progression.',
+              'about6'.tr(),
               style: TextStyle(fontSize: 16.0),
             ),
             SizedBox(height: 16.0),
             Text(
-              'Nous espérons que notre application vous aidera à approfondir vos connaissances en programmation et à vous amuser en même temps !',
+              'about7'.tr(),
               style: TextStyle(fontSize: 16.0),
             ),
           ],
