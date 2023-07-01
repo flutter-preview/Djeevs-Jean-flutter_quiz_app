@@ -132,7 +132,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               ListTile(
                 leading: Icon(Icons.help),
-                title: Text('FAQ'),
+                title: Text('about'.tr()),
                 onTap: () {
                   Navigator.push(
                     context,
