@@ -1,12 +1,18 @@
+import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/activity_page.dart';
 import 'package:flutter_quiz/screens/quizzes_page.dart';
+import 'package:flutter_quiz/screens/faq_page.dart';
+import 'package:flutter_quiz/adapter/adapter.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-Future<void> main() async {
+/* Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   await EasyLocalization.ensureInitialized();
   
   runApp(
@@ -18,14 +24,51 @@ Future<void> main() async {
     ),
   );
 }
+ */
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialiser Hive et obtenir le répertoire d'application
+  await Hive.initFlutter();
+  final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
+
+  // Enregistrer les adaptateurs pour les modèles
+  Hive.registerAdapter(QuizResultAdapter());
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en', 'US'), Locale('en', 'HT')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en', 'HT'),
+      startLocale: Locale('en', 'US'), // Définir la locale de départ
+      child: MyApp(),
+    ),
+  );
+}
+
+/* Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en', 'US'), Locale('en', 'HT')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en', 'HT'),
+      child: MyApp(),
+    ),
+  );
+}
+ */
 class MyApp extends StatelessWidget {
     const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Quiz App',
+      title: 'Code Master Quiz',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -90,7 +133,19 @@ class _MainScreenState extends State<MainScreen> {
                   );
                 },
               ),
-
+              ListTile(
+                leading: Icon(Icons.help),
+                title: Text('FAQ'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      // builder: (context) => FAQPage(),
+                      builder: (context) => AboutPage(),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -139,35 +194,3 @@ class LanguageSelectionDialog extends StatelessWidget {
     );
   }
 }
-
-
-/* 
-class LanguageSelectionDialog extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: const Text('Choisir la langue'),
-      children: [
-        RadioListTile(
-          title: const Text('Kreyol'),
-          value: 'HT',
-          groupValue: context.locale.languageCode, // Utilise la langue actuelle comme valeur de groupe
-          onChanged: (value) {
-            // Met à jour la langue vers le français
-            context.setLocale(Locale('en', value));
-          },
-        ),
-        RadioListTile(
-          title: const Text('English'),
-          value: 'US',
-          groupValue: context.locale.languageCode, // Utilise la langue actuelle comme valeur de groupe
-          onChanged: (value) {
-            // Met à jour la langue vers l'anglais
-            context.setLocale(Locale('en', value));
-          },
-        ),
-      ],
-    );
-  }
-}
- */

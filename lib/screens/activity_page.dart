@@ -1,9 +1,9 @@
+import 'package:flutter_quiz/model/question.dart';
+import 'package:flutter_quiz/adapter/crud_hive.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/service/service_json.dart';
 // import 'package:intl/intl.dart';
-import 'package:flutter_quiz/model/question.dart';
-
 class ActivityTab extends StatefulWidget {
   const ActivityTab({Key? key}) : super(key: key);
 
@@ -12,13 +12,24 @@ class ActivityTab extends StatefulWidget {
 }
 
 class _ActivityTabState extends State<ActivityTab> {
+  Future<List<QuizResult>> fetchQuizResults() async {
+    final quizResultData = QuizResultData();
+    await quizResultData.initHive();
 
-  Future<List<QuizResult>> quizResultsFuture = QuizResultDatabase.loadQuizResults();
+    // Appeler la méthode pour afficher les quiz
+    quizResultData.getAllQuizResults();
+
+    // Fermer Hive lorsque vous avez terminé
+    await quizResultData.closeHive();
+
+    // Retourner une liste de quiz (à adapter en fonction de vos besoins)
+    return [];
+  }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<QuizResult>>(
-      future: quizResultsFuture,
+      future: fetchQuizResults(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -29,19 +40,17 @@ class _ActivityTabState extends State<ActivityTab> {
             child: Text('Error: ${snapshot.error}'),
           );
         } else if (snapshot.hasData) {
-          List<QuizResult> quizResults = snapshot.data!;
+          final quizResults = snapshot.data!;
           return ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
             itemCount: quizResults.length,
             itemBuilder: (context, index) {
-              QuizResult quizResult = quizResults[index];
-
-                  // Format the date manually
-                  // String formattedDate = '${quizResult.date.year}-${quizResult.date.month.toString().padLeft(2, '0')}-${quizResult.date.day.toString().padLeft(2, '0')}';
-  
-                return ListTile(
-                // leading: Icon(Icons.quiz),
-                title: Text('activityname'.tr()+' : ${quizResult.quizTitle}', style: TextStyle(fontWeight: FontWeight.bold),),
+              final quizResult = quizResults[index];
+              return ListTile(
+                title: Text(
+                  'activityname'.tr() + ' : ${quizResult.quizTitle}',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -54,10 +63,7 @@ class _ActivityTabState extends State<ActivityTab> {
                     Row(
                       children: [
                         Icon(Icons.date_range),
-                        Text('Date: $quizResult.date'),
-
-
-                        // Text('Date: ${DateFormat('yyyy-MM-dd').format(quizResult.date)}'),
+                        Text('Date: ${quizResult.date}'),
                       ],
                     ),
                     Row(
@@ -72,7 +78,8 @@ class _ActivityTabState extends State<ActivityTab> {
             },
           );
         } else {
-          return const Center(child: Text('No quiz results found.'),
+          return const Center(
+            child: Text('No quiz results found.'),
           );
         }
       },
