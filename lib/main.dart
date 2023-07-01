@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Code Master Quiz',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
       ),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

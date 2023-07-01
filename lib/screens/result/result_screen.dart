@@ -24,25 +24,6 @@ class ResultScreen extends StatelessWidget {
     await quizResultData.saveQuizResult(quizResult);
 
   }
-/* 
-  void saveScore(count) async {
-    final scores = double.parse(getScorePercentage().toStringAsFixed(1));
-    
-      final quizResult = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now(), countQuestion: count);
-
-      final quizResultStorage = QuizResultStorage();
-      await quizResultStorage.init();
-      await quizResultStorage.saveQuizResult(quizResult);
-  }
- */
-
-  // void saveScore(count) async{
-  //   final scores = double.parse(getScorePercentage().toStringAsFixed(1));
-
-  //   // final result = QuizResult(quizTitle: titleQuiz, score: scores, date: DateTime.now(), countQuestion: count);
-  //   // await QuizResultDatabase.saveQuizResult(result);
-  // }
-
   double getScorePercentage() {
     double percentage = (score / totalQuestions) * 100;
     return percentage;
