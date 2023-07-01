@@ -75,6 +75,7 @@ flutter:
   - assets/languages/javascript.json
   - assets/images/  
   - assets/translations/  
+  - assets/icons/icon_master.png
   # - assets/images/python.jpg
   # - assets/images/javascript.png
   # - assets/images/dart.png

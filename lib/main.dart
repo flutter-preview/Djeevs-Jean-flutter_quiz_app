@@ -111,7 +111,7 @@ class _MainScreenState extends State<MainScreen> {
               accountName: Text(titleAppbar),
               accountEmail: Text('quizapp@dev.com'),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/quiz1.jpg'),
+                  backgroundImage: AssetImage('assets/icons/icon_master.png'),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
@@ -157,7 +157,7 @@ class LanguageSelectionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: const Text('Choisir la langue'),
+      title: Text('label'.tr()),
       children: [
         RadioListTile(
           title: const Text('Kreyol'),
