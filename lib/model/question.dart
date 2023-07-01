@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 
 
 class Question {
@@ -59,11 +58,68 @@ class CategoryQuestion {
       countQuestion: map['countQuestion'],
     );
   }
+} */
+
+class QuizResult {
+  final int? id; // Identifiant unique
+  final String quizTitle;
+  final double score;
+  final int countQuestion;
+  final DateTime date;
+
+  QuizResult({
+    this.id,
+    required this.quizTitle,
+    required this.score,
+    required this.date,
+    required this.countQuestion,
+  });
+
+  factory QuizResult.fromJson(Map<String, dynamic> json) {
+    return QuizResult(
+      id: json['id'],
+      quizTitle: json['quizTitle'],
+      score: json['score'],
+      countQuestion: json['countQuestion'],
+      date: DateTime.parse(json['date']),
+    );
+  }
+
+  factory QuizResult.fromMap(Map<String, dynamic> map) {
+  return QuizResult(
+    id: map['id'],
+    quizTitle: map['quizTitle'],
+    score: map['score'],
+    countQuestion: map['countQuestion'],
+    date: DateTime.parse(map['date']),
+  );
 }
- */
 
 
-class QuizResult extends HiveObject {
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'quizTitle': quizTitle,
+      'score': score,
+      'countQuestion': countQuestion,
+      'date': date.toIso8601String(),
+    };
+  }
+
+    Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'quizTitle': quizTitle,
+      'score': score,
+      'countQuestion': countQuestion,
+      'date': date.toIso8601String(),
+    };
+  }
+}
+
+/* 
+class QuizResult {
   final int? id; // Identifiant unique
   final String quizTitle;
   final double score;
@@ -71,7 +127,6 @@ class QuizResult extends HiveObject {
   final DateTime date;
 
   QuizResult({this.id, required this.quizTitle, required this.score, required this.date, required this.countQuestion});
-
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -92,6 +147,7 @@ class QuizResult extends HiveObject {
     );
   }
 }
+ */
 
 
 class QuestionModel {

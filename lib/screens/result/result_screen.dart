@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/model/question.dart';
 import 'package:flutter_quiz/main.dart';
-import 'package:flutter_quiz/adapter/adapter.dart';
+import 'package:flutter_quiz/sharedprefer/demo.dart';
 import 'package:flutter_quiz/adapter/crud_hive.dart';
 class ResultScreen extends StatelessWidget {
   final int score;
@@ -20,12 +20,9 @@ class ResultScreen extends StatelessWidget {
       countQuestion: count,
     );
 
-    final quizResultData = QuizResultData();
-    await quizResultData.initHive();
+    final quizResultData = QuizResultStorage();
+    await quizResultData.saveQuizResult(quizResult);
 
-    await quizResultData.addQuizResult(quizResult);
-
-    await quizResultData.closeHive();
   }
 /* 
   void saveScore(count) async {

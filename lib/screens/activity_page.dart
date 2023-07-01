@@ -1,9 +1,10 @@
 import 'package:flutter_quiz/model/question.dart';
-import 'package:flutter_quiz/adapter/crud_hive.dart';
+import 'package:flutter_quiz/sharedprefer/demo.dart';
+// import 'package:flutter_quiz/adapter/crud_hive.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/service/service_json.dart';
-// import 'package:intl/intl.dart';
+// import 'package:flutter_quiz/service/service_json.dart';
+import 'package:intl/intl.dart';
 class ActivityTab extends StatefulWidget {
   const ActivityTab({Key? key}) : super(key: key);
 
@@ -13,17 +14,9 @@ class ActivityTab extends StatefulWidget {
 
 class _ActivityTabState extends State<ActivityTab> {
   Future<List<QuizResult>> fetchQuizResults() async {
-    final quizResultData = QuizResultData();
-    await quizResultData.initHive();
-
-    // Appeler la méthode pour afficher les quiz
-    quizResultData.getAllQuizResults();
-
-    // Fermer Hive lorsque vous avez terminé
-    await quizResultData.closeHive();
-
-    // Retourner une liste de quiz (à adapter en fonction de vos besoins)
-    return [];
+    
+    final quizResultData = QuizResultStorage();
+    return await quizResultData.getQuizResults();
   }
 
   @override

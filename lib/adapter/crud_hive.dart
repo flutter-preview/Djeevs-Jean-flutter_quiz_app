@@ -1,32 +1,34 @@
-import 'package:hive/hive.dart';
-import 'package:flutter_quiz/adapter/adapter.dart';
-import 'package:flutter_quiz/model/question.dart';
-import 'package:path_provider/path_provider.dart' as path_provider;
+/* import 'package:flutter_quiz/adapter/model_hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class QuizResultData {
-  Box<QuizResult>? _box;
+class QuizResultManager {
+  final String _boxName = 'quiz_results'; // Nom de la boîte Hive
 
-  Future<void> initHive() async {
-    final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
-    Hive.init(appDocumentDir.path);
+  Future<void> initializeHive() async {
+    await Hive.initFlutter();
     Hive.registerAdapter(QuizResultAdapter());
-    _box = await Hive.openBox<QuizResult>('quiz_results');
+  }
+
+  Future<Box<QuizResult>> openBox() async {
+    final box = await Hive.openBox<QuizResult>(_boxName);
+    return box;
+  }
+
+  Future<void> closeBox(Box<QuizResult> box) async {
+    await box.close();
   }
 
   Future<void> addQuizResult(QuizResult quizResult) async {
-    await _box?.add(quizResult);
+    final box = await openBox();
+    await box.add(quizResult);
+    await closeBox(box);
   }
 
-  List<QuizResult> getAllQuizResults() {
-    return _box?.values.toList() ?? [];
-  }
-
-  QuizResult? getQuizResultAtIndex(int index) {
-    return _box?.getAt(index);
-  }
-
-  Future<void> closeHive() async {
-    await _box?.close();
-    await Hive.close();
+  Future<List<QuizResult>> getQuizResults() async {
+    final box = await openBox();
+    final quizResults = box.values.toList();
+    await closeBox(box);
+    return quizResults;
   }
 }
+ */

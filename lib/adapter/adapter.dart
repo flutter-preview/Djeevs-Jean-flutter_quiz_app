@@ -1,9 +1,9 @@
-import 'package:hive/hive.dart';
+/* import 'package:hive/hive.dart';
 import 'package:flutter_quiz/model/question.dart';
 
-class QuizResultAdapter extends TypeAdapter<QuizResult> {
+/* class QuizResultAdapter extends TypeAdapter<QuizResult> {
   @override
-  final typeId = 0; // Identifiant unique pour votre modèle
+  final typeId = 1; // Identifiant unique pour votre modèle
 
   @override
   QuizResult read(BinaryReader reader) {
@@ -27,3 +27,4 @@ class QuizResultAdapter extends TypeAdapter<QuizResult> {
     writer.write(obj.date);
   }
 }
+ */ */

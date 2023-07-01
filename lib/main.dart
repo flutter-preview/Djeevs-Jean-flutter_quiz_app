@@ -1,13 +1,10 @@
-import 'package:path_provider/path_provider.dart' as path_provider;
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive/hive.dart';
+// import 'package:path_provider/path_provider.dart' as path_provider;
+// import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/screens/activity_page.dart';
 import 'package:flutter_quiz/screens/quizzes_page.dart';
 import 'package:flutter_quiz/screens/faq_page.dart';
-import 'package:flutter_quiz/adapter/adapter.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_quiz/adapter/adapter.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 /* Future<void> main() async {
@@ -26,7 +23,7 @@ import 'package:easy_localization/easy_localization.dart';
 }
  */
 
-void main() async {
+/* void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialiser Hive et obtenir le répertoire d'application
@@ -46,9 +43,9 @@ void main() async {
       child: MyApp(),
     ),
   );
-}
+} */
 
-/* Future<void> main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
@@ -61,7 +58,7 @@ void main() async {
     ),
   );
 }
- */
+
 class MyApp extends StatelessWidget {
     const MyApp({Key? key}) : super(key: key);
 
