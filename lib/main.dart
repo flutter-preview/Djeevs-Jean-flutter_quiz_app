@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Code Master Quiz',
+      title: 'Master Code Quiz',
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
@@ -98,10 +98,16 @@ class _MainScreenState extends State<MainScreen> {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(titleAppbar),
+          title: Text(titleAppbar, style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),),
           
           // title: const Text('Quiz App'),
-          bottom: TabBar(tabs: tabs),
+          bottom: TabBar(tabs: tabs, labelStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),),
         ),
         drawer: Drawer(
         child: ListView(

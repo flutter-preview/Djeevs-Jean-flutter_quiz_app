@@ -130,8 +130,31 @@ class _QuestionSelectionPageState extends State<QuestionSelectionPage> {
                           ),
                         ),
                       );
-                    },
-              child: Text('btnstartquiz'.tr().toString()),
+                    }, style: ElevatedButton.styleFrom(
+                primary: isButtonDisabled ? Colors.grey : Colors.blue,
+                onPrimary: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    size: 24,
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    'btnstartquiz'.tr().toString(),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
