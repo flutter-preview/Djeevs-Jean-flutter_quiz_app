@@ -155,7 +155,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
         appBar: AppBar(
           title: const Text('Quiz App'),
         ),
-        body: Padding(
+        body: SingleChildScrollView(child: Padding(
           padding: const EdgeInsets.all(10),
           child: widget.questions.isEmpty
               ? const Center(child: CircularProgressIndicator())
@@ -208,6 +208,7 @@ class _QuestionListQuestionQuizState extends State<QuestionListQuestionQuiz> {
                     const SizedBox(height: 16),
                   ],
                 ),
+        ),
         ),
       ),
     );
