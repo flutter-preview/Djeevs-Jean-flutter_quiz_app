@@ -13,11 +13,12 @@ class ActivityTab extends StatefulWidget {
 }
 
 class _ActivityTabState extends State<ActivityTab> {
-  Future<List<QuizResult>> fetchQuizResults() async {
-    
-    final quizResultData = QuizResultStorage();
-    return await quizResultData.getQuizResults();
-  }
+ Future<List<QuizResult>> fetchQuizResults() async {
+  final quizResultData = QuizResultStorage();
+  List<QuizResult> quizResults = await quizResultData.getQuizResults();
+  return quizResults.reversed.toList();
+}
+
 
   @override
   Widget build(BuildContext context) {
