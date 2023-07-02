@@ -25,6 +25,10 @@ Future<void> saveQuizResult(QuizResult quizResult) async {
   Future<void> deleteQuizResult(QuizResult quizResult) async {
     final prefs = await SharedPreferences.getInstance();
     final quizResults = await getQuizResults();
+    for (var result in quizResults) {
+      print('Quiz result ID: ${result.id}');
+    }
+    print('Quiz result present: ${quizResults.contains(quizResult)}');
     quizResults.removeWhere((result) => result.id == quizResult.id); // Supprimer en utilisant l'ID unique
     print(quizResults.contains(quizResult));
     final updatedResultsJson = quizResults.map((result) => jsonEncode(result.toJson())).toList();

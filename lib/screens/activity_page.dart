@@ -153,6 +153,7 @@ class _ActivityTabState extends State<ActivityTab> {
 
   void deleteQuizResult(QuizResult quizResult) async{
     // Supprimer le résultat de quiz ici
+    print('Deleting quiz result with ID: ${quizResult.id}');
     final quizResultData = QuizResultStorage(); // Utiliser la même instance de QuizResultStorage
     await quizResultData.deleteQuizResult(quizResult);
   }

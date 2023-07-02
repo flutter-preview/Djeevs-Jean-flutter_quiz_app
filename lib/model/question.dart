@@ -74,7 +74,7 @@ class QuizResult {
     required this.score,
     required this.date,
     required this.countQuestion,
-   }) : id = Uuid().v4(); // Génère un nouvel ID unique pour chaque QuizResult
+   }) : id = Uuid().v1(); // Génère un nouvel ID unique pour chaque QuizResult
 
 
   factory QuizResult.fromJson(Map<String, dynamic> json) {
