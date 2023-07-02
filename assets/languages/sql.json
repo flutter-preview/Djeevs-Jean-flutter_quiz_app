@@ -2,69 +2,69 @@
   {
     "question": "What does SQL stand for?",
     "options": [
-      "Structured Query Language",
       "Sequential Query Language",
+      "Structured Query Language",
       "Standard Query Language",
       "System Query Language"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "Which statement is used to retrieve data from a SQL database?",
     "options": [
-      "SELECT",
       "UPDATE",
-      "DELETE",
-      "INSERT"
+      "INSERT",
+      "SELECT",
+      "DELETE"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "question": "Which clause is used to filter rows in a SELECT statement?",
     "options": [
-      "WHERE",
       "GROUP BY",
-      "HAVING",
-      "ORDER BY"
+      "ORDER BY",
+      "WHERE",
+      "HAVING"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "question": "Which keyword is used to add new rows to a SQL table?",
     "options": [
-      "INSERT",
       "ADD",
+      "INSERT",
       "UPDATE",
       "CREATE"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "What is the purpose of the JOIN clause in SQL?",
     "options": [
-      "To combine rows from different tables based on a related column",
       "To sort the result set in ascending or descending order",
+      "To combine rows from different tables based on a related column",
       "To specify conditions for filtering rows",
       "To group rows based on a column"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "Which data type is used to store a fixed-length character string in SQL?",
     "options": [
-      "CHAR",
-      "VARCHAR",
       "TEXT",
-      "STRING"
+      "STRING",
+      "VARCHAR",
+      "CHAR"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 3
   },
   {
     "question": "What is the result of the following SQL query?\n\n```sql\nSELECT COUNT(*) FROM customers;\n```",
     "options": [
       "The total number of rows in the 'customers' table",
-      "The average value of the 'customers' column",
       "The sum of all values in the 'customers' column",
+      "The average value of the 'customers' column",
       "The maximum value in the 'customers' table"
     ],
     "correctAnswerIndex": 0
@@ -72,92 +72,92 @@
   {
     "question": "Which SQL statement is used to delete a table?",
     "options": [
-      "DROP TABLE",
       "DELETE TABLE",
       "REMOVE TABLE",
+      "DROP TABLE",
       "ERASE TABLE"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "question": "What is the purpose of the GROUP BY clause in SQL?",
     "options": [
+      "To sort the result set in ascending or descending order",
       "To group rows based on a column and perform aggregate functions",
       "To filter rows based on a condition",
-      "To sort the result set in ascending or descending order",
       "To join multiple tables together"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "Which SQL statement is used to modify existing data in a table?",
     "options": [
-      "UPDATE",
       "ALTER",
       "MODIFY",
+      "UPDATE",
       "CHANGE"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "question": "What is the purpose of the ORDER BY clause in SQL?",
     "options": [
       "To sort the result set in ascending or descending order",
       "To filter rows based on a condition",
-      "To group rows based on a column",
-      "To join multiple tables together"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "question": "Which SQL statement is used to create a new database?",
-    "options": [
-      "CREATE DATABASE",
-      "NEW DATABASE",
-      "ADD DATABASE",
-      "MAKE DATABASE"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "question": "What is the purpose of the HAVING clause in SQL?",
-    "options": [
-      "To specify conditions for filtering rows after the GROUP BY clause",
-      "To sort the result set in ascending or descending order",
       "To join multiple tables together",
       "To group rows based on a column"
     ],
     "correctAnswerIndex": 0
   },
   {
+    "question": "Which SQL statement is used to create a new database?",
+    "options": [
+      "NEW DATABASE",
+      "CREATE DATABASE",
+      "ADD DATABASE",
+      "MAKE DATABASE"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the HAVING clause in SQL?",
+    "options": [
+      "To sort the result set in ascending or descending order",
+      "To specify conditions for filtering rows after the GROUP BY clause",
+      "To join multiple tables together",
+      "To group rows based on a column"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
     "question": "Which SQL function is used to find the maximum value in a column?",
     "options": [
-      "MAX()",
       "MIN()",
+      "MAX()",
       "SUM()",
       "COUNT()"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "What is the result of the following SQL query?\n\n```sql\nSELECT DISTINCT category FROM products;\n```",
     "options": [
-      "A list of unique values from the 'category' column in the 'products' table",
       "The average value of the 'category' column",
-      "The sum of all values in the 'category' column",
-      "The maximum value in the 'category' column"
+      "The maximum value in the 'category' column",
+      "A list of unique values from the 'category' column in the 'products' table",
+      "The sum of all values in the 'category' column"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "question": "Which SQL statement is used to add a new column to an existing table?",
     "options": [
-      "ALTER TABLE",
       "MODIFY TABLE",
       "ADD COLUMN",
+      "ALTER TABLE",
       "INSERT COLUMN"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "What is the purpose of the WHERE clause in SQL?",
@@ -172,32 +172,32 @@
   {
     "question": "Which SQL function is used to find the average value in a column?",
     "options": [
-      "AVG()",
       "SUM()",
+      "AVG()",
       "MAX()",
       "COUNT()"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "What is the result of the following SQL query?\n\n```sql\nSELECT * FROM orders LIMIT 5;\n```",
     "options": [
-      "The first 5 rows from the 'orders' table",
       "The last 5 rows from the 'orders' table",
+      "An error occurs",
       "The total number of rows in the 'orders' table",
-      "An error occurs"
+      "The first 5 rows from the 'orders' table"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 3
   },
   {
     "question": "Which SQL statement is used to create a new table?",
     "options": [
-      "CREATE TABLE",
       "NEW TABLE",
+      "CREATE TABLE",
       "ADD TABLE",
       "MAKE TABLE"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "question": "What is the purpose of the DELETE statement in SQL?",
