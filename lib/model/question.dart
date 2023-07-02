@@ -1,3 +1,4 @@
+import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
 
 
@@ -61,23 +62,23 @@ class CategoryQuestion {
 } */
 
 class QuizResult {
-  final int? id; // Identifiant unique
+  final String id; // Identifiant unique
   final String quizTitle;
   final double score;
   final int countQuestion;
   final DateTime date;
 
   QuizResult({
-    this.id,
+    // required this.id,
     required this.quizTitle,
     required this.score,
     required this.date,
     required this.countQuestion,
-  });
+   }) : id = Uuid().v4(); // Génère un nouvel ID unique pour chaque QuizResult
+
 
   factory QuizResult.fromJson(Map<String, dynamic> json) {
     return QuizResult(
-      id: json['id'],
       quizTitle: json['quizTitle'],
       score: json['score'],
       countQuestion: json['countQuestion'],
@@ -87,7 +88,7 @@ class QuizResult {
 
   factory QuizResult.fromMap(Map<String, dynamic> map) {
   return QuizResult(
-    id: map['id'],
+    // id: map['id'],
     quizTitle: map['quizTitle'],
     score: map['score'],
     countQuestion: map['countQuestion'],

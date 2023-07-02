@@ -21,4 +21,14 @@ Future<void> saveQuizResult(QuizResult quizResult) async {
     }
     return [];
   }
+
+  Future<void> deleteQuizResult(QuizResult quizResult) async {
+    final prefs = await SharedPreferences.getInstance();
+    final quizResults = await getQuizResults();
+    quizResults.removeWhere((result) => result.id == quizResult.id); // Supprimer en utilisant l'ID unique
+    print(quizResults.contains(quizResult));
+    final updatedResultsJson = quizResults.map((result) => jsonEncode(result.toJson())).toList();
+    await prefs.setStringList(key, updatedResultsJson);
+  }
+
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/model/question.dart';
 import 'package:flutter_quiz/main.dart';
-import 'package:flutter_quiz/sharedprefer/demo.dart';
+import 'package:flutter_quiz/sharedprefer/service_share.dart';
 import 'package:flutter_quiz/adapter/crud_hive.dart';
 
 import 'package:flutter/material.dart';
