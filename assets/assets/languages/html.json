@@ -1,0 +1,212 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Hyperlink Text Marking Language"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which tag is used to define the title of an HTML document?",
+    "options": [
+      "<head>",
+      "<title>",
+      "<body>",
+      "<h1>"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the correct HTML element for inserting a line break?",
+    "options": [
+      "<break>",
+      "<lb>",
+      "<br>",
+      "<line>"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which attribute is used to specify an alternate text for an image?",
+    "options": [
+      "src",
+      "title",
+      "image",
+      "alt"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which tag is used to define an unordered list in HTML?",
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<li>",
+      "<list>"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'href' attribute in the anchor tag?",
+    "options": [
+      "To define the heading of a section",
+      "To specify the URL of the linked resource",
+      "To create a line break",
+      "To insert an image"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which tag is used to define a table in HTML?",
+    "options": [
+      "<tr>",
+      "<td>",
+      "<table>",
+      "<th>"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the correct HTML element for the largest heading?",
+    "options": [
+      "<h6>",
+      "<heading>",
+      "<header>",
+      "<h1>"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which attribute is used to specify a target for a hyperlink?",
+    "options": [
+      "target",
+      "href",
+      "link",
+      "src"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'src' attribute in the image tag?",
+    "options": [
+      "To define the size of the image",
+      "To specify the URL of the image",
+      "To create a line break",
+      "To insert a caption for the image"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which tag is used to define a paragraph in HTML?",
+    "options": [
+      "<br>",
+      "<par>",
+      "<p>",
+      "<line>"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'style' attribute in HTML?",
+    "options": [
+      "To define the heading of a section",
+      "To create a line break",
+      "To insert an image",
+      "To specify the inline CSS styles for an element"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which tag is used to define a form in HTML?",
+    "options": [
+      "<form>",
+      "<input>",
+      "<label>",
+      "<fieldset>"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'action' attribute in the form tag?",
+    "options": [
+      "To define the type of form input",
+      "To specify the URL where the form data will be sent",
+      "To create a line break",
+      "To insert an image"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which tag is used to define a hyperlink in HTML?",
+    "options": [
+      "<link>",
+      "<href>",
+      "<a>",
+      "<hyperlink>"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'class' attribute in HTML?",
+    "options": [
+      "To define the ID of an element",
+      "To create a line break",
+      "To insert a background image",
+      "To specify one or more class names for an element"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which tag is used to define a division or a section in HTML?",
+    "options": [
+      "<div>",
+      "<section>",
+      "<p>",
+      "<span>"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'id' attribute in HTML?",
+    "options": [
+      "To define the class of an element",
+      "To specify a unique identifier for an element",
+      "To create a line break",
+      "To insert a background color"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which tag is used to define an ordered list in HTML?",
+    "options": [
+      "<ul>",
+      "<li>",
+      "<ol>",
+      "<list>"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'alt' attribute in the image tag?",
+    "options": [
+      "To specify the URL of the image",
+      "To create a line break",
+      "To insert a caption for the image",
+      "To provide alternative text for browsers that cannot display the image"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which tag is used to define a heading in HTML?",
+    "options": [
+      "<h1> to <h6>",
+      "<header>",
+      "<heading>",
+      "<h>"
+    ],
+    "correctAnswerIndex": 0
+  }
+]

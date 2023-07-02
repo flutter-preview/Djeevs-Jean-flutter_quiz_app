@@ -1,0 +1,212 @@
+[
+  {
+    "question": "What is JavaScript?",
+    "options": [
+      "A programming language used for creating dynamic websites",
+      "A style sheet language used for designing web pages",
+      "A database management system",
+      "A markup language for structuring web content"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword is used to declare a variable in JavaScript?",
+    "options": [
+      "let",
+      "var",
+      "const",
+      "variable"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the result of the following code?\n\n```javascript\nconsole.log(5 + '5');\n```",
+    "options": [
+      "10",
+      "Error",
+      "55",
+      "NaN"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which operator is used for strict equality comparison in JavaScript?",
+    "options": [
+      "==",
+      "!=",
+      "===",
+      "!=="
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'typeof' operator in JavaScript?",
+    "options": [
+      "To perform mathematical calculations",
+      "To determine the data type of a value",
+      "To control the flow of program execution",
+      "To concatenate strings"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which function is used to display a dialog box with a message in JavaScript?",
+    "options": [
+      "prompt()",
+      "confirm()",
+      "alert()",
+      "log()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the result of the following code?\n\n```javascript\nconsole.log(2 + 3 + '7');\n```",
+    "options": [
+      "12",
+      "37",
+      "Error",
+      "57"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which method is used to add an element to the end of an array in JavaScript?",
+    "options": [
+      "pop()",
+      "concat()",
+      "join()",
+      "push()"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "What is the purpose of the 'return' statement in a JavaScript function?",
+    "options": [
+      "To specify the value to be returned by the function",
+      "To terminate the execution of a loop",
+      "To define a new function",
+      "To declare a variable"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which method is used to remove an element from the beginning of an array in JavaScript?",
+    "options": [
+      "unshift()",
+      "slice()",
+      "shift()",
+      "splice()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the result of the following code?\n\n```javascript\nconsole.log(typeof null);\n```",
+    "options": [
+      "null",
+      "object",
+      "undefined",
+      "boolean"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which function is used to convert a string to an integer in JavaScript?",
+    "options": [
+      "parseFloat()",
+      "parseInt()",
+      "toString()",
+      "toFixed()"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the 'this' keyword in JavaScript?",
+    "options": [
+      "To perform arithmetic operations",
+      "To access the DOM",
+      "To refer to the current object",
+      "To define a new function"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which method is used to remove the last element from an array in JavaScript?",
+    "options": [
+      "push()",
+      "concat()",
+      "pop()",
+      "slice()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the result of the following code?\n\n```javascript\nconsole.log(2 == '2');\n```",
+    "options": [
+      "false",
+      "true",
+      "Error",
+      "NaN"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which operator is used to access a property of an object in JavaScript?",
+    "options": [
+      "dot (.)",
+      "arrow (->)",
+      "double colon (::)",
+      "at (@)"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'NaN' value in JavaScript?",
+    "options": [
+      "To represent a value that is not a number",
+      "To terminate the execution of a loop",
+      "To access the DOM",
+      "To define a new function"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which method is used to concatenate two or more strings in JavaScript?",
+    "options": [
+      "join()",
+      "slice()",
+      "concat()",
+      "split()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the result of the following code?\n\n```javascript\nconsole.log(10 % 3);\n```",
+    "options": [
+      "3",
+      "0",
+      "1",
+      "Error"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which statement is used to exit a loop in JavaScript?",
+    "options": [
+      "exit",
+      "continue",
+      "return",
+      "break"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "What is the purpose of the 'new' keyword in JavaScript?",
+    "options": [
+      "To declare a new variable",
+      "To define a new function",
+      "To create an instance of an object",
+      "To access the DOM"
+    ],
+    "correctAnswerIndex": 2
+  }
+]

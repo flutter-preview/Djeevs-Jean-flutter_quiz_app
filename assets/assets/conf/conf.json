@@ -1,0 +1,43 @@
+[
+  {
+    "quizTitle": "Python",
+    "image": "assets/images/python.jpg",
+    "file": "python"
+  },
+  {
+    "quizTitle": "Java",
+    "image": "assets/images/java.png",
+    "file": "java"
+  },
+  {
+    "quizTitle": "C++",
+    "image": "assets/images/cplusplus.png",
+    "file": "cplusplus"
+  },
+  {
+    "quizTitle": "Android",
+    "image": "assets/images/android.jpg",
+    "file": "android"
+  },
+  {
+    "quizTitle": "HTML",
+    "image": "assets/images/html.png",
+    "file": "html"
+  },
+  {
+    "quizTitle": "JavaScript",
+    "image": "assets/images/javascript.png",
+    "file": "javascript"
+  },
+  {
+    "quizTitle": "SQL",
+    "image": "assets/images/sql.png",
+    "file": "sql"
+  },
+  {
+    "quizTitle": "Dart",
+    "image": "assets/images/dart.png",
+    "file": "dart"
+  }
+  
+]

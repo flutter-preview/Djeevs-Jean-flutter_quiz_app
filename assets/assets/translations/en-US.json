@@ -1,0 +1,20 @@
+{
+    "apptitle":"Master Code Quiz",
+    "btnstartquiz":"Start Quiz",
+    "indexquiz": "Select the number of questions you want to have for this quiz.",
+    "labelquiz": "Quizzes",
+    "labelactivity": "Activity",
+    "activityname": "Quiz",
+    "quizname": "Quiz",
+    "label": "Choose the language",
+    "chooselanguage": "Change the language application",
+    "about": "About",
+    "about1": "Bienvenue dans notre application de quiz !",
+    "about2": "Notre application vous permet de tester vos connaissances dans différents langages de programmation, tels que Python, Java, C++, Android, HTML, JavaScript, SQL et Dart.",
+    "about3": "Fonctionnalités principales :",
+    "about4": "- Choix parmi une variété de quiz dans différents langages de programmation.",
+    "about5": "- Répondez à des questions à choix multiples pour tester vos compétences.",
+    "about6": "- Obtenez des scores pour chaque quiz et suivez votre progression.",
+    "about7": "Nous espérons que notre application vous aidera à approfondir vos connaissances en programmation et à vous amuser en même temps !"
+
+}

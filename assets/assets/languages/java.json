@@ -1,0 +1,212 @@
+[
+  {
+    "question": "What is Java?",
+    "options": [
+      "A programming language",
+      "An operating system",
+      "A database management system",
+      "A markup language"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword is used to define a class in Java?",
+    "options": [
+      "void",
+      "class",
+      "this",
+      "new"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the output of the following code?\n\n```java\nSystem.out.println(5 + 5 + \"5\");\n```",
+    "options": [
+      "15",
+      "55",
+      "105",
+      "Error"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which data type is used to store whole numbers in Java?",
+    "options": [
+      "double",
+      "int",
+      "boolean",
+      "String"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the purpose of the 'public' keyword in Java?",
+    "options": [
+      "To perform mathematical calculations",
+      "To control the flow of program execution",
+      "To specify the visibility of a class, method, or variable",
+      "To declare a new function"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which keyword is used to create an object in Java?",
+    "options": [
+      "create",
+      "instance",
+      "object",
+      "new"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "What is the output of the following code?\n\n```java\nSystem.out.println(\"Java\".length());\n```",
+    "options": [
+      "5",
+      "4",
+      "6",
+      "Error"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which operator is used for string concatenation in Java?",
+    "options": [
+      "-",
+      "*",
+      "+",
+      "/"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'static' keyword in Java?",
+    "options": [
+      "To terminate the execution of a loop",
+      "To access the DOM",
+      "To declare a new function",
+      "To define a class-level variable or method"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which keyword is used to inherit a class in Java?",
+    "options": [
+      "extends",
+      "implements",
+      "inherits",
+      "inherits-from"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```java\nSystem.out.println(10 > 5 || 5 < 3);\n```",
+    "options": [
+      "false",
+      "true",
+      "Error",
+      "NaN"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which method is used to convert a string to an integer in Java?",
+    "options": [
+      "Double.parseDouble()",
+      "String.valueOf()",
+      "Integer.parseInt()",
+      "Math.round()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'super' keyword in Java?",
+    "options": [
+      "To perform arithmetic operations",
+      "To access the DOM",
+      "To define a new function",
+      "To refer to the parent class"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which data type is used to store a single character in Java?",
+    "options": [
+      "char",
+      "int",
+      "boolean",
+      "String"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```java\nSystem.out.println(10 % 3);\n```",
+    "options": [
+      "3",
+      "1",
+      "0",
+      "Error"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which operator is used to access a member of an object in Java?",
+    "options": [
+      "arrow (->)",
+      "double colon (::)",
+      "dot (.)",
+      "at (@)"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "What is the purpose of the 'null' value in Java?",
+    "options": [
+      "To terminate the execution of a loop",
+      "To access the DOM",
+      "To define a new function",
+      "To indicate the absence of a value"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "question": "Which method is used to concatenate two or more strings in Java?",
+    "options": [
+      "concat()",
+      "join()",
+      "substring()",
+      "replace()"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the output of the following code?\n\n```java\nfor (int i = 0; i < 5; i++) {\n  System.out.println(i);\n}\n```",
+    "options": [
+      "1 2 3 4 5",
+      "0 1 2 3 4",
+      "0 1 2 3",
+      "Error"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which statement is used to exit a loop in Java?",
+    "options": [
+      "break",
+      "exit",
+      "continue",
+      "return"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the purpose of the 'new' keyword in Java?",
+    "options": [
+      "To create an instance of a class",
+      "To declare a new variable",
+      "To define a new function",
+      "To access the DOM"
+    ],
+    "correctAnswerIndex": 0
+  }
+]
