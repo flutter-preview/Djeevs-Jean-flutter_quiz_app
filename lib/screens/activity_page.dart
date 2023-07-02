@@ -48,7 +48,16 @@ class _ActivityTabState extends State<ActivityTab> {
             itemCount: quizResults.length,
             itemBuilder: (context, index) {
               final quizResult = quizResults[index];
-              return Card(
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QuizResultDetailPage(quizResult: quizResult),
+                    ),
+                  );
+                },
+                child: Card(
                 elevation: 4,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -114,6 +123,7 @@ class _ActivityTabState extends State<ActivityTab> {
                     ],
                   ),
                 ),
+              ),
               );
             },
           );
@@ -130,6 +140,56 @@ class _ActivityTabState extends State<ActivityTab> {
           );
         }
       },
+    );
+  }
+}
+
+class QuizResultDetailPage extends StatelessWidget {
+  final QuizResult quizResult;
+
+  const QuizResultDetailPage({required this.quizResult});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Quiz Result'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Quiz Title: ${quizResult.quizTitle}',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Score: ${quizResult.score}%',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Date: ${DateFormat('MMM d, h:mm a').format(quizResult.date)}',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Number of Questions: ${quizResult.countQuestion}',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
